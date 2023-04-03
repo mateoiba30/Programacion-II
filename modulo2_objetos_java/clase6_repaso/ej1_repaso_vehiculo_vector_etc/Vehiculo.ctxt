@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Vehiculo
+comment1.params=anio\ imp_basico\ propietario
+comment1.target=Vehiculo(int,\ double,\ Propietario)
+comment2.params=
+comment2.target=Vehiculo()
+comment3.params=
+comment3.target=int\ getAnio()
+comment4.params=
+comment4.target=double\ getImp_basico()
+comment5.params=
+comment5.target=Propietario\ getPropietario()
+comment6.params=anio
+comment6.target=void\ setAnio(int)
+comment7.params=imp_basico
+comment7.target=void\ setImp_basico(double)
+comment8.params=propietario
+comment8.target=void\ setPropietario(Propietario)
+comment9.params=
+comment9.target=double\ CalcularSueldo()
+numComments=10

@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Revista
+comment1.params=codigo\ cant_pags\ resumen\ responsable\ nombre\ cant_articulos
+comment1.target=Revista(int,\ int,\ java.lang.String,\ Responsable,\ java.lang.String,\ int)
+comment10.params=anio
+comment10.target=void\ publicar(int)
+comment2.params=
+comment2.target=Revista()
+comment3.params=
+comment3.target=java.lang.String\ getNombre()
+comment4.params=nombre
+comment4.target=void\ setNombre(java.lang.String)
+comment5.params=
+comment5.target=int\ getVolumen()
+comment6.params=volumen
+comment6.target=void\ setVolumen(int)
+comment7.params=
+comment7.target=int\ getCant_articulos()
+comment8.params=cant_articulos
+comment8.target=void\ setCant_articulos(int)
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=11

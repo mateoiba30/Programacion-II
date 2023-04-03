@@ -1,0 +1,22 @@
+ORG 1000h
+n1 DW ?
+n2 DW ?
+
+ORG 2000h
+MOV Ax,n1; como ax arranca en cero, es lo mismo en esta linea hacer MOV o ADD
+ADD AX,n2
+;MOV AX, n1+n2 tmb se puede
+
+
+repetir:CMP AX,100;si n1=100 termino
+JZ fin;termina si es igual o menor a 100
+JC fin;si n1 es menor a 100, termina
+;estamos preguntando si es menor o igual
+;SI HACEMOS JS, NOS DA PUDE DAR CON SIGNO SI TENEMOS UN NUMERO MUY GRADE QUE TENGA PRENDIDO EL BIT MÁS SIGNIFICATIVO
+;SI RESTAS UN NUMERO MÁS CHICO CON UNO MÁS GRADNE, SIEMPRE HAY CARRY
+
+DEC AX; sinó (n1 es mayor a 100), decremento ax
+JMP repetir
+
+fin:hlt
+end

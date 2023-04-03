@@ -1,0 +1,181 @@
+programa ej3-clase3
+procesos
+
+  proceso max(ES contA:numero; ES contB:numero; ES nummax:numero; ES valormax:numero; ES robotA:numero; ES robotB:numero )
+  comenzar
+    si(contA>=contB)
+      nummax:=robotA
+      valormax:=contA
+    sino
+      nummax:=robotB
+      valormax:=contB
+
+  fin
+
+  proceso limpiar_y_contar(ES cont:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      cont:=cont+1
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cont:=cont+1  
+  fin
+
+areas
+  area0: AreaPC(5,5,50,30)
+  area1: AreaP(7,4,7,4)
+  area2: AreaP(9,4,9,4)
+  area3: AreaP(11,4,11,4)
+  area4: AreaP(13,4,13,4)
+  area5: AreaP(1,1,1,1)
+
+robots
+
+  robot tipo1
+  variables
+    aux:boolean
+    avenida:numero
+    calle:numero
+    cont:numero
+  comenzar
+    cont:=0
+    aux:=V
+    mientras (aux=V)
+      RecibirMensaje(aux,robot5)
+      si(aux=V)
+        Random(avenida,5,50)
+        Random(calle,5,30)
+        Pos(avenida,calle)
+        limpiar_y_contar(cont)     
+      Pos(7,4)
+      EnviarMensaje(cont,robot5)
+  fin
+  
+  robot tipo2
+  variables
+    aux:boolean
+    avenida:numero
+    calle:numero
+    cont:numero
+  comenzar
+    cont:=0
+    aux:=V
+    mientras (aux=V)
+      RecibirMensaje(aux,robot5)
+      si(aux=V)
+        Random(avenida,5,50)
+        Random(calle,5,30)
+        Pos(avenida,calle)
+        limpiar_y_contar(cont)
+      Pos(9,4)
+      EnviarMensaje(cont,robot5)
+  fin
+
+  robot tipo3
+  variables
+    aux:boolean
+    avenida:numero
+    calle:numero
+    cont:numero
+  comenzar
+    cont:=0
+    aux:=V
+    mientras (aux=V)
+      RecibirMensaje(aux,robot5)
+      si(aux=V)
+        Random(avenida,5,50)
+        Random(calle,5,30)
+        Pos(avenida,calle)
+        limpiar_y_contar(cont)
+      Pos(11,4)
+      EnviarMensaje(cont,robot5)
+  fin
+  
+  robot tipo4
+  variables
+    aux:boolean
+    avenida:numero
+    calle:numero
+    cont:numero
+  comenzar
+    cont:=0
+    aux:=V
+    mientras (aux=V)
+      RecibirMensaje(aux,robot5)
+      si(aux=V)
+        Random(avenida,5,50)
+        Random(calle,5,30)
+        Pos(avenida,calle)
+        limpiar_y_contar(cont)
+      Pos(13,4)
+    EnviarMensaje(cont,robot5)
+  fin
+
+  robot tipo5
+  variables
+    num, aux, cont1, cont2, cont3, cont4, nummax,nummaxA,nummaxB,valormax,valormaxA,valormaxB,robA,robB:numero
+
+  comenzar
+
+    repetir 20
+      Random(num,1,4)
+      si(num=1)
+        EnviarMensaje(V,robot1)
+      sino
+        si(num=2)
+          EnviarMensaje(V,robot2)
+        sino
+          si(num=3)
+            EnviarMensaje(V,robot3)
+          sino
+            EnviarMensaje(V,robot4)   
+
+    EnviarMensaje(F,robot1)
+    EnviarMensaje(F,robot2)
+    EnviarMensaje(F,robot3)
+    EnviarMensaje(F,robot4)
+
+    RecibirMensaje(cont1,robot1)
+    RecibirMensaje(cont2,robot2)
+    RecibirMensaje(cont3,robot3)
+    RecibirMensaje(cont4,robot4)
+
+    robA:=1
+    robB:=2
+    max(cont1,cont2,nummaxA,valormaxA,robA,robB)
+    robA:=3
+    robB:=4
+    max(cont3,cont4,nummaxB,valormaxB,robA,robB)
+    max(valormaxA,valormaxB,nummax,valormax,nummaxA,nummaxB)
+    Informar(nummax)
+
+  fin
+  
+
+variables
+  robot1:tipo1
+  robot2:tipo2
+  robot3:tipo3
+  robot4:tipo4
+  robot5:tipo5
+
+comenzar
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,area3)
+  AsignarArea(robot4,area4)
+  AsignarArea(robot5,area5)
+  
+  AsignarArea(robot1,area0)
+  AsignarArea(robot2,area0)
+  AsignarArea(robot3,area0)
+  AsignarArea(robot4,area0)
+
+  Iniciar(robot1,7,4)
+  Iniciar(robot2,9,4)
+  Iniciar(robot3,11,4)
+  Iniciar(robot4,13,4)
+  Iniciar(robot5,1,1)
+
+fin

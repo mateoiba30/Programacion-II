@@ -1,0 +1,68 @@
+ORG 1000H ;Datos
+TablaA DB 1, 2, 5, 4, 7
+TablaB DB 2, 3, 4, 5, 7
+Resul DB ?
+
+ORG 3000H ; Subrutina
+Subr: PUSH BX
+      PUSH AX
+      MOV BX,SP ;traemos el puntero al tope de la pila
+      ADD BX,6  ;sumo & para saltar el Dir. de retorno y push de AX y BX
+      MOV BX,[BX] ;Nos traemos la dir. del parámetro
+      MOV AH,[BX] ;Recibir un par. por referencia via pila (16b) valor A 
+        ;Recibir u par. por valor vía registro (8bits) en AL, valor B
+      CMP AL,AH ; resta de AL-AH B-A
+      JNS FinR
+reemplazar: MOV [BX],AL ; reemplazo
+FinR: POP AX
+      POP BX
+      RET
+
+ORG 2000H ;Programa
+MOV CX, OFFSET TablaA ; dir. de TablaA
+MOV BX, OFFSET TablaB ; dir. de TablaB
+MOV DL, OFFSET TablaB - OFFSET TablaA ; cantidad de elementos de las tablas
+MOV DH, 0 ;TOTALIZADOR
+
+bucle:PUSH CX; Mandar via pila la dir. de la TablaA
+MOV AL,[BX]; Mandar el dato de la subrutina en AL (via registro)
+CALL Subr
+POP CX
+CMP AL, 6
+JS Sigue
+ADD DH,AL; suma del valor de TablaB
+Sigue: INC CX ; para avanzar en la TablaA
+INC BX ; para avanzar en la TablaB
+DEC DL
+JNZ bucle
+
+MOV Resul, DH; guardamos la suma
+Fin: HLT
+END
+
+;BIEN VISTO HACER MOV VAR,5? 
+
+;CUIDADO CON LOS OFFSETS
+;SI TENGO PUSHS ARRIBA EN LA SUBR SUMAR MÁS Q 2 A BX
+;MOV BX,SP
+;ADD BX,2;-->NO
+
+;PARA NO ROMPER VONSIM:
+;AL CONTADOR ASIGNARLE UN REGISTRO
+;NO HACER 2 SALTOS CONDICIONALES SEGUIDOS
+;NO HACER CALL DENTRO DE UNA SUBRUTINA
+;NO TENER 2 RET EN UNA SUBR
+
+;1RO INCREMENTO Y DESP COMPARO
+;TOOD LO APILADO OCUPA 2 DIRECCIONES
+;1RO APILO LA PARTE LOW
+;NEG, INC, DEC, NOT ES PARA: ETIQUTA/[BX] (BX APUNTA A UNA DIR DE MEMORIA)
+;HACER POCOS OFFSETS
+;HACER POCOS LLAMADOS A MEMORIA
+;SOLO HACER VARIABLES SI NOS PIDEN . USAR REGISTROS Y SI NO ME QUEDAN USAR LA PILA
+;CMP BYTE PTR [BX],20;-->SOLO NOS FIJAMOS LA PARTE LOW DE LO Q APUNTA BX
+;CMP DX,[BX]--> COMPARA A DL CON LO QUE APUNTA BX Y A DH CON LA SIGUIENTE CELDA
+;CMP DL,[BX]--> COMPARA A DL CON LO QUE APUNTA BX
+;EL CMP SOLO PUEDE IR A MEMORIA 1 VEZ
+;MOV VAR,5H--> SE PUEDE
+;PILA POR REFERENCIA--> 2nvls DE INDIRECCION

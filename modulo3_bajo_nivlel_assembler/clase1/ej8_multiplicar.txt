@@ -1,0 +1,13 @@
+ORG 1000h
+n1 DB 9
+n2 DB 5
+
+ORG 2000h
+MOV AL,0;inicalizamos el AL
+;guardamos la suma en un registro (AL), no en una variable!
+repetir: ADD AL,n1
+DEC n2;cuando n2 llegue a cero, no repito mas
+JNZ repetir;mientras dimf!=0(final de la tabla) repetimos
+
+hlt
+END

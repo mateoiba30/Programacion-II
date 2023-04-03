@@ -1,0 +1,57 @@
+programa ej1-clase5
+procesos
+  proceso recorrer_perimetro
+  comenzar
+    repetir 2
+
+      repetir 20
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+        mover
+      derecha
+
+      repetir 15
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+        mover
+      derecha
+
+  fin
+areas
+  area0: AreaPC(10,10,10,10)
+  area1: AreaP(15,15,30,35)
+  area2: AreaP(40,40,55,60)
+
+robots
+  robot jugador
+  variables
+    x,y:numero
+  comenzar
+    x:=PosAv
+    y:=PosCa
+    recorrer_perimetro
+    BloquearEsquina(10,10)
+    Pos(10,10)
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+    Pos(x,y)
+    LiberarEsquina(10,10)
+   
+  fin
+
+variables
+
+  robot1: jugador
+  robot2: jugador
+
+comenzar
+  AsignarArea(robot1,area1)
+  AsignarArea(robot1,area0)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot2,area0)
+
+  Iniciar(robot1,15,15)
+  Iniciar(robot2,40,40)
+
+
+fin

@@ -1,0 +1,20 @@
+pendiente: optimizar el carrera calle 50 
+
+ya acomodé los cometarios del carrera calle 50 
+
+
+
+hice que los robots se vuelvan de la carrera calle 50 con su misma orientacion por temas de reutilizacion
+pase los informar a texto piola
+
+si el random + posca=51 solo cambiaba el random pero no analizaba esa esquina
+hice q la carrera de la calle 50 no calcule tantos posavs y poscas (ver diferencia entre la v6 y la v7)
+
+NOOOO (ME DEBO ASEGURAR DE NO PASARME DE LA CIUDAD)--> la carrera calle 50 lo hice con un repetir en vez de un mientras porq gracias al
+contador sabíamos exactamente cuantas veces repetir
+
+dejamos las areas de parejas sin la calle 51 porque el robot corredor nunca cae
+
+podríamos haber hecho privado el primer escalon de cada escalaor (excepto la última esquina de él)
+pero no nos pareció necesario debido a que hay que cambiar bastante el
+codigo para que en ese momento no bloqueé y no vale la pena

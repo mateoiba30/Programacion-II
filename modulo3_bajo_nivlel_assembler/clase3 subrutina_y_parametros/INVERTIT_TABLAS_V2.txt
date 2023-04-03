@@ -1,0 +1,41 @@
+ORG 1000H
+tablaA DB 1,2,5,4,7
+tablaB DB 2,3,4,5,7
+sumaB DB 0
+
+ORG 3000H
+sumar:MOV BX,CX;bx apunta a la tabla b
+PUSH DX;no olvidar de recuperar DX
+MOV DL,5
+CMP DL,[BX];5-el valor de la tabla b
+JNS FIN2;si el valor de la tabla b es mayor a 5 entonces no salto
+MOV DL,sumaB;DX tiene el valor de sumaB
+MOV DL,[BX];DX TIENE EL VALOR DE LA TABLA B
+MOV BX,OFFSET sumaB;bx tiene la direccion de suma b
+ADD [BX],DL;direccionamiento indirecto de sumaB
+FIN2:POP DX;recuperamos DX para que siga apuntando a la tabla b
+RET
+
+invertir:MOV BX,DX;BX APUNTA A LA TABLA A
+CMP AH,[BX];COMPARAR B CON A
+JNS FIN 
+MOV [BX],AH;A LA TABLA A LE MANDAMOS B
+FIN:RET
+
+modificar:CALL sumar;DX,CX,AX OCUPADOS
+;DX TENEMOS LA DIRECCION DE LA TABLA A
+MOV BX,CX
+MOV AH,[BX];EN AH TENEMOS EL VALOR A ANALIZAR DE LA TABLA B
+CALL invertir
+INC CX
+INC DX
+CMP DX,OFFSET tablaB;como suponemos que las tablas son de igual largo
+JNZ modificar;       solo nos fijamos de que no se termine la tabla
+RET
+
+ORG 2000H
+MOV DX, OFFSET tablaA
+MOV CX, OFFSET tablaB
+CALL modificar
+
+END 

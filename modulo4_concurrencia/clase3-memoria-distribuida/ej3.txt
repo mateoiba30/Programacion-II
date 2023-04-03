@@ -1,0 +1,109 @@
+programa ej3-clase3
+procesos
+  proceso juntarPapeles(ES contP:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      contP:=contP+1
+  fin
+
+  proceso juntarFlores(ES contF:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      contF:=contF+1
+  fin
+
+  proceso hacer_escalon(ES contador:numero)
+  variables
+    alto:numero
+    contF:numero
+    contP:numero
+  comenzar
+    contF:=0
+    contP:=0
+    Random(alto,1,5)
+    repetir alto
+      juntarFlores(contF)
+      juntarPapeles(contP)
+      mover
+    juntarFlores(contF)
+    juntarPapeles(contP)
+    derecha 
+    mover
+    repetir 3
+      derecha
+    si (contF>contP)
+      contador:=contador+1
+    
+  fin
+
+  proceso hacer_escalera (ES contador:numero)
+  comenzar
+    contador:=0
+    repetir 4
+      hacer_escalon(contador)
+  fin
+
+areas
+  area1: AreaP(2,1,6,20)
+  area2: AreaP(7,1,11,20)
+  area3: AreaP(12,1,16,20)
+  area4 :AreaP(1,1,1,1)
+
+robots
+  robot tipo1
+  variables
+    cont:numero  
+  comenzar
+    hacer_escalera(cont)
+    EnviarMensaje(cont,robot4)
+  fin
+  
+  robot tipo2
+  variables
+    cont:numero  
+  comenzar
+    hacer_escalera(cont)
+    EnviarMensaje(cont,robot4)
+  fin
+
+  robot tipo3
+  variables
+    cont:numero
+  comenzar
+    hacer_escalera(cont)
+    EnviarMensaje(cont,robot4)
+  fin
+
+  robot tipo4
+  variables
+    num1:numero
+    num2:numero
+    num3:numero
+  comenzar
+    RecibirMensaje(num1,*)
+    RecibirMensaje(num2,*)
+    RecibirMensaje(num3,*)
+    num1:=num1+num2+num3
+    Informar(num1)
+  fin
+
+variables
+  robot1:tipo1
+  robot2:tipo2
+  robot3:tipo3
+  robot4:tipo4
+
+comenzar
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,area3)
+  AsignarArea(robot4,area4)
+
+  Iniciar(robot1,2,1)
+  Iniciar(robot2,7,1)
+  Iniciar(robot3,12,1)
+  Iniciar(robot4,1,1)
+
+fin

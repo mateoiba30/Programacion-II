@@ -1,0 +1,61 @@
+ORG 1000h
+TABLAA db 1, 2, 5, 4, 30
+TABLAB db 1, 7, 5, 9, 7
+SUMAB DB 0
+
+org 3000h
+SUBR:push BX;CX APUTNA A B, AL TIENE EL VALOR DE A
+push AX
+
+mov BX,CX;bx apunta b
+mov AH,1;ah es res
+repetir:ADD AH,AH
+INC AL
+CMP Al,[BX];comparo a con b
+JNZ repetir
+
+mov  [BX],AH
+pop AX
+pop BX
+RET
+
+
+REC_TABLA: MOV BX,SP
+ADD BX,4
+MOV DL,[BX];dx tiene la cant de elementos de la tabla
+SUB BX,2
+MOV BX,[BX];bx tiene la direccion de INICIO DE la tablaA
+
+FOR: CMP DX,0;repito hata haber analizado toda la tabla:
+JZ FINN
+
+MOV AL,[BX];AL tiene el valor del elemento de la tablaA
+ADD BX,DX;BX TIENE LA DIRECCION DE LA TABLAB
+MOV CX,BX
+
+PUSH DX
+MOV DL,[BX]
+CMP DL,AL
+POP DX
+
+CALL SUBR;MOFICIA TABLA
+
+MOV AH,[BX]
+CMP AH,10
+JS SALTO2
+MOV BX,SUMAB
+INC [BX]
+SALTO2:INC BX; apunta al siguiente elemento
+JMP FOR
+FINN:RET
+
+ORG 2000H
+MOV BX,OFFSET TABLAB-OFFSET TABLAA
+PUSH BX 
+MOV BX,OFFSET TABLAA
+PUSH BX ;pila desde abajo: cant de elemntos de la tabla, direccion de la tablaA
+CALL REC_TABLA; queda en ax el contador de impares
+POP BX
+POP BX;libero la pila
+HLT
+END

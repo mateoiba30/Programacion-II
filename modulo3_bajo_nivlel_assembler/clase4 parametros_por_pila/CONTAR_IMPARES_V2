@@ -1,0 +1,41 @@
+ORG 1000H
+NUM DW 1,4,3,2,1,10
+FINAL DB ?
+
+ORG 3000H 
+ES_IMPAR: AND CX,1; cx queda con 1 si es impar
+CMP CX,1
+JNZ TRUE;si son distintos, si es par va a true
+FALSE: MOV CX, 01H
+JMP FIN
+TRUE: MOV CX, 00H; c=0 si es par, sinó c=1
+FIN: RET
+
+REC_TABLA: MOV BX,SP
+ADD BX,4
+MOV DX,[BX];dx tiene la ant de elementos de la tabla
+SUB BX,2
+MOV BX,[BX];bx tiene la direccion de la tabla
+
+FOR: CMP DX,0;repito hata haber analizado toda la tabla:
+JZ FINN
+MOV CX,[BX];cx tiene el valor del elemento de la tabla
+CALL ES_IMPAR;c=0 impar
+SUB DX,2;1 elemen menos (porq son DW)
+ADD BX,2;bx apunta al siguiente elemento
+CMP CX,1
+JNZ FOR;si es par repito
+INC AX;sino incremento el contador y desp repito
+JMP FOR
+FINN:RET
+
+ORG 2000H
+MOV BX,OFFSET FINAL-OFFSET NUM
+PUSH BX 
+MOV BX,OFFSET NUM
+PUSH BX ;pila desde abajo: cant de elemntos de la tabla, direccion de la tabla
+CALL REC_TABLA; queda en ax el contador de impares
+POP BX
+POP BX;libero la pila
+HLT
+END

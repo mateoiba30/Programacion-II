@@ -1,0 +1,6 @@
+|(id=ganador2)){Dado por cierto, voy una vez por turno a dejar el papel en la 100,1} 
+      depositar_flores_en_basurero(contF)
+    sino                   
+      carrera_calle_50_flores(esquina)   {VOY A MODULARIZAR EL RECORRIDO, EVALUAR SI ESTA BIEN}
+      {NO-->EnviarMen---}
+  proceso hacer_escalera(ES contF:numero) {bloquea sig, mueve, libera ant, analiza}

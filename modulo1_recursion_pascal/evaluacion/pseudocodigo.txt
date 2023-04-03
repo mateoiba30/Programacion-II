@@ -1,0 +1,25 @@
+eliminar nodo del arbol:
+
+si el arbol no está vacío:
+
+  si no tiene hijo por izquierda/entra si no tiene hijos
+
+    copio el NODO del hijo de la derecha y también le copio a lo que apunta los hijos del hijo derec
+
+    elimino el hijo derecho
+
+sinó
+
+    si no tiene hijo por derecha
+
+      copio el NODO del hijo de la izq y también le copio a lo que apunta los hijos del hijo izq
+
+      elimino el hijo izquierdo
+
+    sinó //tiene 2 hijos
+
+      busco el menor dato por la derecha //el valor más cercano
+
+      copio el valor del dato mas cercano en el nodo que quería borrar
+
+      vuelvo a llamar esta función con el dato que quedó duplicado

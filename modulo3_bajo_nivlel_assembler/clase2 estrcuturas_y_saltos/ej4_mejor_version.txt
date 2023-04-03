@@ -1,0 +1,19 @@
+ORG 1000h
+n1 DW ?
+n2 DW ?
+
+ORG 2000h
+MOV Ax,n1; como ax arranca en cero, es lo mismo en esta linea hacer MOV o ADD
+ADD AX,n2
+;MOV AX, n1+n2 tmb se puede
+
+
+repetir:CMP AX,100;si n1=100 termino
+JS fin
+;es raro usar dos condicionales seguidos. por más que no ande siempre esta es la mejor opción.
+
+DEC AX; sinó (n1 es mayor a 100), decremento ax
+JMP repetir
+
+fin:hlt
+end

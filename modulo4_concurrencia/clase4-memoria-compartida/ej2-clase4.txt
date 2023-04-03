@@ -1,0 +1,106 @@
+programa ej2-clase4
+procesos
+
+  proceso juntarPapeles(ES contP:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      contP:=contP+1
+  fin
+
+  proceso juntarFlores(ES contF:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      contF:=contF+1
+  fin
+
+areas
+  area0: AreaPC(10,10,10,10)
+  areafloreros: AreaPC(1,1,5,10)
+  areapapeleros: AreaPC(6,1,10,9)
+
+  areaf1: AreaP(6,10,6,10)
+  areaf2: AreaP(7,10,7,10)
+  areap1: AreaP(8,10,8,10)
+  areap2: AreaP(9,10,9,10)
+
+robots
+
+  robot papelero
+  variables  
+    av,ca,x,y,contP:numero
+  comenzar
+    contP:=0
+    x:=PosAv
+    y:=PosCa
+    repetir 2
+      Random(av,6,10)
+      Random(ca,1,9)
+      BloquearEsquina(av,ca)
+      Pos(av,ca)
+      juntarPapeles(contP)
+      Pos(x,y)
+      LiberarEsquina(av,ca)
+    Informar(contP) 
+    BloquearEsquina(10,10) 
+    Pos(10,10)
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+    Pos(x,y)
+    LiberarEsquina(10,10)
+  fin
+  robot florero
+  variables  
+    av,ca,x,y,contF:numero
+  comenzar
+    x:=PosAv
+    y:=PosCa
+    contF:=0
+    repetir 5
+      Random(av,1,5)
+      Random(ca,1,10)
+      BloquearEsquina(av,ca)
+      Pos(av,ca)
+      juntarFlores(contF)
+      Pos(x,y)
+      LiberarEsquina(av,ca)
+    Informar(contF)  
+    BloquearEsquina(10,10)
+    Pos(10,10)
+    Pos(x,y)
+    mientras (HayFlorEnLaBolsa)
+      depositarFlor
+    LiberarEsquina(10,10)
+  fin
+
+variables
+  robotf1:florero
+  robotf2:florero
+  robotp1:papelero
+  robotp2:papelero
+
+comenzar
+  AsignarArea(robotf1,areaf1)
+  AsignarArea(robotf2,areaf2)
+  AsignarArea(robotp1,areap1)
+  AsignarArea(robotp2,areap2)
+
+  AsignarArea(robotp1,areapapeleros)
+  AsignarArea(robotp2,areapapeleros)
+
+  AsignarArea(robotf1,areafloreros)
+  AsignarArea(robotf2,areafloreros)
+
+  AsignarArea(robotf1,area0)
+  AsignarArea(robotf2,area0)
+  AsignarArea(robotp1,area0)
+  AsignarArea(robotp2,area0)
+
+  Iniciar(robotf1,6,10)
+  Iniciar(robotf2,7,10)
+  Iniciar(robotp1,8,10)
+  Iniciar(robotp2,9,10)
+
+
+fin

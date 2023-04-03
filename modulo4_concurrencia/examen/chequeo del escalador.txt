@@ -1,0 +1,187 @@
+programa cod_promocion
+
+{----------------------------------------------------------}
+procesos
+
+{---------------corredores/escaladores perdedores----------}
+  proceso carrera_calle_50_flores(ES esquina:numero) {ver bien si tengo que declarar esquina o no}
+  variables  
+    AvAnt,CaAnt,x,y:numero
+    seguir:boolean
+  comenzar
+    derecha
+    seguir:=V
+    x:=PosAv { estaría dejando al escalador al final de este módulo al final de su escalera}
+    y:=PosCa
+    {Declaro mis posiciones iniciales para poder tp al final}  
+    BloquearEsquina(1,50)
+    Pos(1,50)
+    AvAnt:=PosAv
+    si HayFlorEnLaBolsa
+      depositarFlor
+    sino
+      seguir:=F
+    {Veo si tengo flor para depositar y analizo la primer esquina}  
+    mientras (PosAv<100) & (seguir) {inicio recorrido}
+      AvAnt:=PosAv
+      si HayFlorEnLaBolsa
+        BloquearEsquina(PosAv + 1,PosCa) {no puedo poner AvAnt+1!!}
+        mover      
+        LiberarEsquina(AvAnt,PosCa) 
+        depositarFlor
+      sino
+        seguir:=F
+             
+    si PosAv=100  {Hicimos walkthroug,estabamos bloqueando 2 VECES}  
+      si HayFlorEnLaBolsa
+        depositarFlor
+        Pos(x,y)
+        LiberarEsquina(100,50)
+        esquina:=100
+      sino
+        Pos(x,y)
+        LiberarEsquina(100,50)
+        esquina:=100
+    sino
+      Pos(x,y)
+      LiberarEsquina(AvAnt,50)
+      esquina:=AvAnt
+  fin
+
+{------------corredores/escaladores ganadores----------}
+  proceso depositar_papeles_en_basurero(ES contP:numero)
+  variables
+    x,y:numero
+  comenzar
+    x:=PosAv
+    y:=PosCa
+    BloquearEsquina(100,1)
+    Pos(100,1)
+    mientras HayPapelEnLaBolsa
+      depositarPapel
+    Pos(x,y)
+    LiberarEsquina(100,1)
+  fin
+  
+  proceso depositar_flores_en_basurero(ES contF:numero)
+  variables
+    x,y:numero
+  comenzar
+    x:=PosAv
+    y:=PosCa
+    BloquearEsquina(100,1)
+    Pos(100,1)
+    mientras HayPapelEnLaBolsa
+      depositarPapel
+    Pos(x,y)
+    LiberarEsquina(100,1)
+  fin
+
+
+{----------procesos escaladores-----------}
+  proceso hacer_escalera(ES contF:numero)
+  variables
+    num,x,y:numero
+  comenzar
+    repetir 5 {5 escalones}
+
+      x:=PosAv {cuando se mueve para arriba la x es constante}
+      repetir 3 {3 de altura}
+        y:=PosCa
+        BloquearEsquina(x,y + 1)
+        mover
+        LiberarEsquina(x,y)
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+          contF:=contF+1
+      derecha
+      Random(num,3,5)
+
+      y:=PosCa {cuando se mueve para el costado la y es constante}
+      repetir num {ancho random}
+        x:=PosAv {ver si es necesario declarar nuevamnete el x e y}
+        BloquearEsquina(x + 1,y)
+        mover
+        LiberarEsquina(x,y)
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+          contF:=contF+1
+
+      repetir 3
+        derecha
+  fin
+
+{---------------------------------------------------------------}
+areas
+  area_escaladores: AreaC(5,51,45,66)
+
+  calle_carrera: AreaC(1,50,100,50)
+
+  area_c1: AreaP(5,1,5,49)
+  area_c2: AreaP(10,1,10,49)
+  area_c3: AreaP(15,1,15,49)
+  area_c4: AreaP(20,1,20,49)
+
+  area_juez: AreaP(1,1,1,1)
+  basurero: AreaPC(100,1,100,1)
+
+{----------------------------------------------------------}
+robots
+  robot escalador 
+  variables
+    id,contF,esquina:numero
+    habilita:boolean
+  comenzar
+    habilita:=F
+    contF:=0
+
+    {hacer escalera contando flores}
+    hacer_escalera(contF)
+
+    {una vez terminada la escalera envía el contador al juez}
+    Informar(contF)
+      
+    {Veo si soy el mejor de los corredores}
+    {RecibirMensaje(ganador1,robotJ)}
+  {  RecibirMensaje(ganador2,robotJ)}
+
+    si ((id=ganador1)||(id=ganador2))
+      depostitar_flores_en_basurero(contF)
+    sino
+      carrera_calle_50_flores(esquina)
+      Informar('calle_50_y_avenida_',esquina)
+  fin
+
+
+variables
+  robote1: escalador
+  robote2: escalador
+  robote3: escalador
+  robote4: escalador
+
+comenzar
+
+{areas escaladores}
+  AsignarArea(robote1,area_escaladores)
+  AsignarArea(robote1,calle_carrera)
+  AsignarArea(robote1,basurero)
+
+  AsignarArea(robote2,area_escaladores)
+  AsignarArea(robote2,calle_carrera)
+  AsignarArea(robote2,basurero)
+
+  AsignarArea(robote3,area_escaladores)
+  AsignarArea(robote3,calle_carrera)
+  AsignarArea(robote3,basurero)
+
+  AsignarArea(robote4,area_escaladores)
+  AsignarArea(robote4,calle_carrera)
+  AsignarArea(robote4,basurero)
+
+{iniciamos a los escaladores} 
+  Iniciar(robote1,5,51) 
+  Iniciar(robote2,10,51) 
+  Iniciar(robote3,15,51)  
+  Iniciar(robote4,20,51) 
+
+fin 

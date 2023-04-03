@@ -1,0 +1,20 @@
+ORG 1000H
+n1h DW 0000
+n1l DW 1234
+n2h DW 4321
+n2l DW 0000
+
+ORG 2000h
+
+ADD BX, n1h
+ADD BX,n2h
+
+MOV AX, n1l
+ADD AX, n2l
+JNC salto
+INC BX
+salto: hlt
+end
+
+;no nos preocupamos por el acarreo final en 32 bits
+;si escribo BH BL Ah AL no representa al numero

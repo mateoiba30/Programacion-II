@@ -1,0 +1,11 @@
+import java.util.Scanner;
+public class ProgramaEditorial {
+    public static void main (String[] args){
+        Scanner in = new Scanner(System.in); //no olvidar
+        
+        System.out.println("Hola");
+
+        in.close();
+    }
+    
+}

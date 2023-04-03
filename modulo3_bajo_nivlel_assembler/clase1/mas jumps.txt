@@ -1,0 +1,12 @@
+ORG 1000h
+Dato    DW 2000
+
+ORG 2000h
+MOV AX, 500 ; AX=500     (1)
+ADD AX, Dato	 ;  AX=2500 (2)
+CMP AX, 1500 ;comparacion falasa, Z=0
+JZ Then 	    ; si son iguales termino
+JMP Fin ; se va si o si a hlt
+Then: 		MOV BX, 500 ; nunca llega, pero si cambiamsos valores simplemte modifica valores, lo cual no nos interfiere
+Fin:		HLT ;fin del programa
+END

@@ -1,0 +1,103 @@
+programa ej1-clase4
+procesos
+
+  proceso juntarPapeles
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+
+  proceso juntarFlores
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+
+areas
+  area0: AreaC(10,10,10,10)
+  areafloreros: AreaPC(1,1,5,10)
+  areapapeleros: AreaPC(6,1,10,9)
+
+  areaf1: AreaP(6,10,6,10)
+  areaf2: AreaP(7,10,7,10)
+  areap1: AreaP(8,10,8,10)
+  areap2: AreaP(9,10,9,10)
+
+robots
+
+  robot papelero
+  variables  
+    av,ca,x,y:numero
+  comenzar
+    x:=PosAv
+    y:=PosCa
+    repetir 2
+      Random(av,6,10)
+      Random(ca,1,9)
+      BloquearEsquina(av,ca)
+      Pos(av,ca)
+      juntarPapeles
+      Pos(x,y)
+      LiberarEsquina(av,ca)
+      
+    BloquearEsquina(10,10)
+    Pos(10,10)
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+    Pos(x,y)
+    LiberarEsquina(10,10)
+  
+  fin
+  robot florero
+  variables  
+    av,ca,x,y:numero
+  comenzar
+    x:=PosAv
+    y:=PosCa
+    repetir 5
+      Random(av,1,5)
+      Random(ca,1,10)
+      BloquearEsquina(av,ca)
+      Pos(av,ca)
+      juntarFlores
+      Pos(x,y)
+      LiberarEsquina(av,ca)
+
+    BloquearEsquina(10,10) 
+    Pos(10,10)
+    mientras (HayFlorEnLaBolsa)
+      depositarFlor
+    Pos(x,y)
+    LiberarEsquina(10,10)
+  fin
+
+variables
+  robotf1:florero
+  robotf2:florero
+  robotp1:papelero
+  robotp2:papelero
+
+comenzar
+  AsignarArea(robotf1,areaf1)
+  AsignarArea(robotf2,areaf2)
+  AsignarArea(robotp1,areap1)
+  AsignarArea(robotp2,areap2)
+
+  AsignarArea(robotp1,areapapeleros)
+  AsignarArea(robotp2,areapapeleros)
+
+  AsignarArea(robotf1,areafloreros)
+  AsignarArea(robotf2,areafloreros)
+
+  AsignarArea(robotf1,area0)
+  AsignarArea(robotf2,area0)
+  AsignarArea(robotp1,area0)
+  AsignarArea(robotp2,area0)
+
+  Iniciar(robotf1,6,10)
+  Iniciar(robotf2,7,10)
+  Iniciar(robotp1,8,10)
+  Iniciar(robotp2,9,10)
+
+
+fin

@@ -1,0 +1,19 @@
+ORG 1000h
+tabla    DB 01h,02h,03h;guardamos tabla
+
+ORG 2000h
+
+MOV BX,1000h;ASIGNAMOS UN VLAOR A BX
+;guardamos la suma en un registro (AL), no en una variable!
+repetir: ADD AL,[BX];si ponemos BX estariamos mandando lo de 1000h a AL y 1001h a AH
+INC BX;incremento BX
+CMP BX,1003h
+JNZ repetir;mientras BX!=1003h(final de la tabla) repetimos
+
+hlt
+END
+;si hubieramos guardado la info de la suma en AX, al moemnto de hacer
+;la linea del repetir, estaríamos queriendo llenar una word, por
+;lo cual le estaríamos mandando la información de la celda de memoria
+;con direccion apuntada por BX, y tmb la celda siguiente para 
+;cargar la parte alta de AX

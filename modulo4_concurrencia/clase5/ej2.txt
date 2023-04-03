@@ -1,0 +1,101 @@
+programa ej2-clase5
+procesos
+  proceso recorrer_perimetro(ES ancho:numero; ES alto:numero)
+  comenzar
+    repetir 2
+
+      repetir alto
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+        mover
+      derecha
+
+      repetir ancho
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+        mover
+      derecha
+
+  fin
+areas
+  area0: AreaPC(10,10,10,10)
+  area1: AreaP(15,15,30,35)
+  area2: AreaP(40,40,55,60)
+  areap1: AreaP(2,2,2,2)
+  areap2: AreaP(6,6,6,6)
+  areapj: AreaP(1,1,1,1)
+
+
+robots
+  robot jugador
+  variables
+    id,Av,Ca,ancho,alto:numero
+  comenzar
+    RecibirMensaje(id,robotj)
+    RecibirMensaje(Av,robotj)
+    RecibirMensaje(Ca,robotj)
+    RecibirMensaje(ancho,robotj)
+    RecibirMensaje(alto,robotj)
+
+    Pos(Av,Ca)
+    recorrer_perimetro(ancho,alto)
+    BloquearEsquina(10,10)
+    Pos(10,10)
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+    Pos(Av,Ca) {no especifica a q esquina volver}
+    LiberarEsquina(10,10)
+   
+  fin
+
+  robot jefe
+  variables
+    Av,Ca,ancho,alto:numero
+  comenzar
+    EnviarMensaje(1,robot1)
+    EnviarMensaje(2,robot2)
+    Informar('IDS_enviados',V)
+
+    Random(Av,15,23)
+    Random(Ca,15,25)
+    Random(ancho,1,7)
+    Random(alto,1,10)
+    EnviarMensaje(Av,robot1)
+    EnviarMensaje(Ca,robot1)
+    EnviarMensaje(ancho,robot1)
+    EnviarMensaje(alto,robot1)
+    Informar('datos_enviados',V)
+
+    Random(Av,40,48)
+    Random(Ca,40,50)
+    Random(ancho,1,7)
+    Random(alto,1,10)
+    EnviarMensaje(Av,robot2)
+    EnviarMensaje(Ca,robot2)
+    EnviarMensaje(ancho,robot2)
+    EnviarMensaje(alto,robot2)
+    Informar('datos_enviados',V)
+  fin
+
+variables
+
+  robot1: jugador
+  robot2: jugador
+  robotj: jefe
+
+comenzar
+  AsignarArea(robot1,area1)
+  AsignarArea(robot1,area0)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot2,area0)
+
+  AsignarArea(robot1,areap1)
+  AsignarArea(robot2,areap2)
+  AsignarArea(robotj,areapj)
+
+  Iniciar(robot1,2,2)
+  Iniciar(robot2,6,6)
+  Iniciar(robotj,1,1)
+
+
+fin

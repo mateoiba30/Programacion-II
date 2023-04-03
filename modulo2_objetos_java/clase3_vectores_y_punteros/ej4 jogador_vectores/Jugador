@@ -1,0 +1,69 @@
+public class Jugador {
+    private String nombre;
+    private int partidos;
+    private int goles;
+    private int DNI;
+    private int edad; 
+    
+    public Jugador(String unNombre, int unDNI, int unaEdad,int unPartido,int unGol){
+        nombre = unNombre;
+        DNI = unDNI;
+        edad = unaEdad; 
+        partidos=unPartido;
+        goles=unGol;
+    }
+    
+    public Jugador(){
+     
+    }
+
+    public int getDNI() {
+        return DNI;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getPartidos() {
+        return goles;
+    }
+
+    public String getGoles() {
+        return partidos;
+    }
+    
+    
+    public void setDNI(int unDNI) {
+        DNI = unDNI;
+    }
+
+    public void setEdad(int unaEdad) {
+        edad = unaEdad;
+    }
+
+    public void setNombre(String unNombre) {
+        nombre = unNombre;
+    }
+            
+    
+    public String setPartidos() {
+        partidos=unPartido;
+    }
+
+    public String setGoles() {
+        goles=unGol;
+    }
+    
+    public String toString(){ // le borramos los parametros!
+        String aux; 
+        aux = "Mi nombre es " + nombre + ", mi DNI es " + DNI + " y tengo " + edad + " años.";
+        return aux;
+    }
+    
+    
+}

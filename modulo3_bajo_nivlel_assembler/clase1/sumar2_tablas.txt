@@ -1,0 +1,27 @@
+ORG 1000h
+tabla1 DB 4,5,6,7,8;inicio es la pos 1 de la tabla1
+tabla2 DB 9,10,11,12,13;incio+5 es la pos 1 de la tabla2
+tabla3 DB ?,?,?,?,?;incio+10 es la pos 1 de la tabla3
+pos DW 1000h;no es necesario usar incio, DEBE SER UNA WORD
+dimf DB 5
+
+ORG 2000h
+
+
+repetir:MOV AL,0;donde voy sumando
+MOV BX,pos;BX lo uso de puntero a las tablas
+ADD AL,[BX];AL le sumo lo de la tabla1
+
+ADD BX,5;BX apunta a la tabla2
+ADD AL,[BX];AL tiene sumnado lo de la tabla1 y tabla
+
+ADD BX,5;BX apunta a la tabla3
+MOV [BX],AL;la tabla 3 guarda la suma
+
+INC pos;para avanzar a la siguiente pos
+DEC dimf;decremento al dimf
+JNZ repetir;se repite hasta dimf=0 (o sea que repito segpun la cantidad de elemntos de las tablas
+
+
+hlt
+END

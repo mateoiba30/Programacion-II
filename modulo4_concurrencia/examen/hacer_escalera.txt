@@ -1,0 +1,33 @@
+
+	proceso hacer_escalera(ES contF:numero) {bloquea sig, mueve, libera ant, analiza}
+	variables
+		num:numero
+	comenzar
+		repetir 5 {5 escalones}
+
+			x:=PosAv {cuando se mueve para arriba la x es constante}
+			repetir 3 {3 de altura}
+				y:=PosCa
+				BloquearEsquina(x,y + 1)
+				mover
+        LiberarEsquina(x,y)
+				mientas(HayFlorEnLaEsquina)
+					tomarFlor
+					contF:=contF+1
+
+			derecha
+			Random(num,3,5)
+
+			y:=PosCa {cuando se mueve para el costado la y es constante}
+			repetir num {ancho random}
+				x:=PosAv {ver si es necesario declarar nuevamnete el x e y}
+				BloquearEsquina(x + 1,y)
+				mover
+				LiberarEsquina(x,y)
+				mientras(HayFlorEnLaEsquina)
+					tomarFlor
+					contF:=contF+1
+
+			repetir 3
+				derecha
+	fin

@@ -1,0 +1,38 @@
+escalador:
+hemos escrito el código del escalador 1 vez para los 4 robots escaladores,
+ por lo cual teníamos que hacer un código genérico donde cada robot sepa 
+de quien recibir el mensaje, motivo por el cual hicimos una anidación de
+ la estructura "si".
+Después le envía el contador y el id al juez para que identifique el ganador
+ y quién le está enviando este mensaje. Luego el mismo robot se fija si ganó 
+o no (lo cual es mucho más sencillo antes de que el juez le envíe a los ganadores 
+un mensaje de que ganaron y uno de que perdieron a los perdedores).
+
+
+Hacer Escalera:
+como cada escalador se mueve en un area compartida con los otros escaladores
+ este debe bloquear y liberar cada esquina para evitar el choque con otro robot.
+Es por esto que dentro de la estructura de fabricación de la escalera el robot 
+bloquea la siguiente esquina, se mueve, libera la esquina anetrior y 
+por último la analiza. Observar que una vez finalizado el repetir 5 para los
+ 5 escalones hay que liberar una vez más (la última esquina a la que se movió).
+Además no es necesario calcular el PosAv y PosCa muchas veces, pero dependiendo 
+si se movía hacia arriba o hacia el costado una coordenada sería constante.
+También como se mueve con pasos de 1 esquina ed longitud es que podemos ir
+ incrementando estas coordenadas en lugar de volver a pedir el PosAv o PosCa
+
+
+Juez:
+Envía ids para identificar a cada robot. Más adelante recibe mensajes de 
+contadores sin esperar un oden en particular porque no se sabe que robot cumplirá
+ con su tarea antes (si un corredor o escalador), y para diferenciar cada robot 
+y que tipo es usa los recientemente mencionados ids. Al final cada robot recibe
+la información de quienes ganaron
+
+
+Procesos juez:
+Lo único modularizable en el juez son las partes donde no recibe ni envía mensajes. 
+Es por esto que armamos un proceso para verificar si un contador enviado es mayor
+a alguno de dos máximos, y otro donde solo calcule un máximo. Ellos son requeridos
+ para el cálculo de los ganadores finales y para el robot ganador de cada 
+tipo respectivamente

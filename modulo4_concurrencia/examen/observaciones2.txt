@@ -1,0 +1,62 @@
+{VER COMENTARIOS DE TODOS LOSS PROGRAMAS}
+hay veces que salgo de rinfo mientras ejecuta y desp el programa no finaliza
+o dice que hay robots que se escapan de area asignada
+
+el depositar en basurero lo habíamos hecho para solo depostiar papeles
+eso desp lo cambiamos
+
+el depostira papeles lo hicimos con un for porq disoníamos del contador de 
+elementos recolectados, por lo cual era ineficiente hacer un while
+
+al enviar mensaje de ganadores nos dimos cuenta que era mejor enviarle
+el id de los 2 ganadores a todos los robots en vez de seguir con el siguiente 
+codigo interminable y on sabíamos bien como seguirlo:
+
+		si idmax1=11
+			EnviarMensaje(V,robotc1)
+		sino
+			si idmax1=12
+				EnviarMensaje(V,robotc2)
+			sino
+				si idmax1=13
+					EnviarMensaje(V,robotc3)
+				sino
+					si idmax1=14
+						EnviarMensaje(V,robotc4)
+						sino
+							si idmax1=21
+								EnviarMensaje(V,robote1)
+							sino
+								si idmaxd1=22
+									EnviarMensaje(V,robote2)
+								sino
+									si idmax1=23
+										EnviarMensaje(V,robote3)
+									sino
+										si idmax1=24
+											EnviarMensaje(V,robote4)
+
+		si idmax2=11
+			EnviarMensaje(V,robotc1)
+		sino
+			si idmax2=12
+				EnviarMensaje(V,robotc2)
+			sino
+				si idmax2=13
+					EnviarMensaje(V,robotc3)
+				sino
+					si idmax2=14
+						EnviarMensaje(V,robotc4)
+						sino
+							si idmax2=21
+								EnviarMensaje(V,robote1)
+							sino
+								si idmax2=22
+									EnviarMensaje(V,robote2)
+								sino
+									si idmax2=23
+										EnviarMensaje(V,robote3)
+									sino
+										si idmax2=24
+											EnviarMensaje(V,robote4)
+	fin

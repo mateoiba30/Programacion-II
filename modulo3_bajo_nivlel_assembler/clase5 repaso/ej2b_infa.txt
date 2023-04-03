@@ -1,0 +1,59 @@
+ORG 1000h
+TABLAA DB  1,2,5,4,30;parametro que viene por valor
+TABLAB DB 1,7,5,9,7;parametro que viene por referencia 
+sumatoria db 0
+
+org 3000h
+SUBR:push BX
+push AX
+
+mov BX,CX;bx apunta b
+mov AH,1;ah es res
+repetir:ADD AH,AH
+INC AL
+CMP Al,[BX];comparo a con b
+JNZ repetir
+
+mov  [BX],AH
+pop AX
+pop BX
+RET
+
+
+ORG 2000h
+MOV CX,OFFSET TABLAB
+MOV DX,OFFSET TABLAA
+PUSH CX
+PUSH DX
+PUSH AX
+PUSH BX
+
+REC_TABLA: MOV BX,DX
+MOV AL,[BX]
+MOV BX,CX
+CMP AL,[BX]
+
+
+JNS seguir
+CALL SUBR
+
+seguir:mov BX, CX
+mov AH,[BX]
+mov BX, OFFSET sumatoria
+CMP AH,10
+JNS seguir2
+add [BX],AH
+
+seguir2:INC CX
+INC DX
+CMP DX,OFFSET TABLAB
+
+JNZ REC_TABLA
+
+POP BX
+POP AX
+POP DX
+POP CX
+
+FIN: hlt
+END

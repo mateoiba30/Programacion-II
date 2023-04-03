@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ProgramaRASE
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=persona\ in\ i
+comment2.target=void\ cargarPersona(Persona,\ java.util.Scanner,\ int)
+comment3.params=in\ i
+comment3.target=Solicitud\ cargarAtributos(java.util.Scanner,\ int)
+numComments=4

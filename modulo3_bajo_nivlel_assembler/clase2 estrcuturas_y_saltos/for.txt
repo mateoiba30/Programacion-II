@@ -1,0 +1,9 @@
+ORG 2000h
+MOV AL,10
+MOV CL,1
+
+for:ADD AL,AL
+INC CL
+CMP CL,10;estamos repitiendo 9 veces el bucle
+JZ fin
+JMP for

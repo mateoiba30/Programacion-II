@@ -1,0 +1,3 @@
+la parte de creación de areas y la de asignacion de areas e inicialización de robots (estas 2 diap al principio de todo)
+
+adjuntar código al final

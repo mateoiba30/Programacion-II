@@ -1,0 +1,110 @@
+programa ej1-clase4
+procesos
+
+  proceso max(ES contA:numero; ES contB:numero; ES nummax:numero; ES valormax:numero; ES robotA:numero; ES robotB:numero )
+  comenzar
+    si(contA>=contB)
+      nummax:=robotA
+      valormax:=contA
+    sino
+      nummax:=robotB
+      valormax:=contB
+
+  fin
+  
+areas
+  areaj: AreaP(1,1,1,1)
+  area1: AreaP(2,1,2,1)
+  area2: AreaP(3,1,3,1)
+  area3: AreaP(4,1,4,1)
+  area4: AreaP(5,1,5,1)
+  area0: AreaPC(2,2,10,10)
+
+robots
+  robot jugador
+  variables
+    av,ca,x,y,cont:numero
+    terminar:boolean
+  comenzar
+    cont:=0
+    x:=PosAv
+    y:=PosCa
+    terminar:=F
+
+    RecibirMensaje(av,robotj)
+    RecibirMensaje(ca,robotj)
+
+    mientras (terminar=F)
+      BloquearEsquina(av,ca)
+      Pos(av,ca)
+      si (HayFlorEnLaEsquina)
+        tomarFlor
+      sino
+        terminar:=V
+      Pos(x,y)
+      LiberarEsquina(av,ca)
+      cont:=cont+1
+
+    EnviarMensaje(cont,robotj)
+  fin
+
+  robot jefe
+  variables
+    av,ca,cont1,cont2,cont3,cont4,nummax,nummaxA,nummaxB,valormax,valormaxA,valormaxB,robA,robB:numero
+  comenzar
+    Random(av,2,10)
+    Random(ca,2,10)
+
+    EnviarMensaje(av,robot1)
+    EnviarMensaje(ca,robot1)
+
+    EnviarMensaje(av,robot2)
+    EnviarMensaje(ca,robot2)
+
+    EnviarMensaje(av,robot3)
+    EnviarMensaje(ca,robot3)
+
+    EnviarMensaje(av,robot4)
+    EnviarMensaje(ca,robot4)
+
+    RecibirMensaje(cont1,robot1)
+    RecibirMensaje(cont2,robot2)
+    RecibirMensaje(cont3,robot3)
+    RecibirMensaje(cont4,robot4)
+
+    robA:=1
+    robB:=2
+    max(cont1,cont2,nummaxA,valormaxA,robA,robB)
+    robA:=3
+    robB:=4
+    max(cont3,cont4,nummaxB,valormaxB,robA,robB)
+    max(valormaxA,valormaxB,nummax,valormax,nummaxA,nummaxB)
+    Informar(nummax)
+  fin
+
+variables
+  robotj: jefe
+  robot1: jugador
+  robot2: jugador
+  robot3: jugador
+  robot4: jugador
+
+comenzar
+  AsignarArea(robotj,areaj)
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,area3)
+  AsignarArea(robot4,area4)
+
+  AsignarArea(robot1,area0)
+  AsignarArea(robot2,area0)
+  AsignarArea(robot3,area0)
+  AsignarArea(robot4,area0)
+
+  Iniciar(robotj,1,1)
+  Iniciar(robot1,2,1)
+  Iniciar(robot2,3,1)
+  Iniciar(robot3,4,1)
+  Iniciar(robot4,5,1)
+
+fin

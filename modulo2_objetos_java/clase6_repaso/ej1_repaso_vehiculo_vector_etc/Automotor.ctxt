@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Automotor
+comment1.params=anio\ imp_basico\ propietario\ patente\ imp_adicional\ descripcion
+comment1.target=Automotor(int,\ double,\ Propietario,\ java.lang.String,\ double,\ java.lang.String)
+comment2.params=
+comment2.target=Automotor()
+comment3.params=
+comment3.target=java.lang.String\ getPatente()
+comment4.params=patente
+comment4.target=void\ setPatente(java.lang.String)
+comment5.params=
+comment5.target=double\ getImp_adicional()
+comment6.params=imp_adicional
+comment6.target=void\ setImp_adicional(double)
+comment7.params=
+comment7.target=java.lang.String\ getDescripcion()
+comment8.params=descripcion
+comment8.target=void\ setDescripcion(java.lang.String)
+comment9.params=
+comment9.target=double\ CalcularSueldo()
+numComments=10

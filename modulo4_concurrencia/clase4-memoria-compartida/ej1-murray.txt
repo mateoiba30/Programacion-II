@@ -1,0 +1,108 @@
+programa nombrePrograma
+procesos
+  proceso JuntarFlores(ES flores:numero)
+  comenzar
+    mientras HayFlorEnLaEsquina
+      flores:=flores+1
+      tomarFlor
+  fin
+  proceso JuntarPapeles(ES papeles:numero)
+  comenzar
+    mientras HayPapelEnLaEsquina
+      papeles:= papeles + 1 
+      tomarPapel
+  fin
+  proceso PapeleroCalle(ES papeles:numero; E valor:numero)
+  comenzar
+    repetir 99
+      JuntarPapeles(papeles)
+      BloquearEsquina(PosAv + valor,PosCa)
+      mover
+      LiberarEsquina(PosAv - valor,PosCa)
+    derecha
+  fin
+  proceso PapeleroAvenida(ES papeles:numero; E valor:numero)
+  comenzar
+    repetir 99
+      JuntarPapeles(papeles)
+      BloquearEsquina(PosAv,PosCa + valor)
+      mover
+      LiberarEsquina(PosAv,PosCa - valor)
+    derecha
+  fin
+  proceso FloreroCalle(ES flores:numero; E valor:numero)
+  comenzar
+    repetir 99
+      JuntarFlores(flores)
+      BloquearEsquina(PosAv + valor,PosCa)
+      mover
+      LiberarEsquina(PosAv - valor,PosCa)
+    derecha
+  fin
+  proceso FloreroAvenida(ES flores:numero; E valor:numero)
+  comenzar
+    repetir 99
+      JuntarFlores(flores)
+      BloquearEsquina(PosAv,PosCa + valor)
+      mover
+      LiberarEsquina(PosAv,PosCa - valor)
+    derecha
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  variables
+    flores:numero
+    x:numero
+    y:numero
+    valor:numero
+  comenzar
+    flores:=0
+    x:=PosAv
+    y:=PosCa
+    valor:=-1
+    repetir 2
+      derecha
+    BloquearEsquina(100,100)
+    Pos(100,100)
+    JuntarFlores(flores)
+    LiberarEsquina(100,100)
+    repetir 2
+      FloreroAvenida(flores,valor)
+      FloreroCalle(flores,valor)
+      valor:=1
+    Pos(x,y)
+    Informar(flores)
+  fin 
+  robot robot2
+  variables
+    papeles: numero
+    x: numero
+    y: numero
+    valor:numero
+  comenzar
+    papeles := 0
+    x:= PosAv
+    y:= PosCa
+    valor:=1
+    BloquearEsquina(1,1)
+    Pos(1,1)
+    JuntarPapeles(papeles)
+    LiberarEsquina(1,1)
+    repetir 2
+      PapeleroAvenida(papeles,valor)
+      PapeleroCalle(papeles,valor)
+      valor:=-1
+    Pos(x,y)
+    Informar(papeles)
+  fin
+variables
+  florero: robot1
+  papelero: robot2
+comenzar
+  AsignarArea (florero,ciudad)
+  AsignarArea(papelero,ciudad)
+  Iniciar (florero,49,50)
+  Iniciar(papelero,50,49)
+fin

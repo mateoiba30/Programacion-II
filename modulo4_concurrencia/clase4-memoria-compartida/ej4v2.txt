@@ -1,0 +1,106 @@
+programa ej4-clase4
+
+areas
+  inicio: AreaP(1,1,1,1)
+  V1: AreaP(4,1,4,100)
+  V2: AreaP(6,1,6,100)
+  V3: AreaP(8,1,8,100)
+  V4: AreaP(10,1,10,100)
+  fuente: AreaPC(11,11,11,11)
+
+
+robots
+
+  robot tipo1
+  variables
+    x,y,id:numero
+    seguir:boolean
+  comenzar
+    RecibirMensaje(id,robotJ)
+    seguir:=V
+    x:=PosAv
+    y:=PosCa
+    mientras (seguir)
+
+      BloquearEsquina(11,11)
+      Pos(11,11)    
+      si (HayPapelEnLaEsquina)
+        tomarPapel
+      sino
+        seguir:=F
+
+      Pos(x,y)
+      LiberarEsquina(11,11)
+
+      si (seguir){si hay papael en bolsa}
+        depositarPapel
+        si(y<100)
+          mover
+      
+      si(y=101)
+        seguir1:=F
+
+      y:=PosCa
+    
+    EnviarMensaje(id, robotJ)
+    EnviarMensaje(y,robotJ)
+  fin
+
+  robot juez
+  variables
+    id,Ca,maxCa,maxid:numero {id=avenida}
+
+  comenzar
+    
+    EnviarMensaje(4,robot4)
+    EnviarMensaje(6,robot6)
+    EnviarMensaje(8,robot8)
+    EnviarMensaje(10,robot10)
+
+    maxCa:=-1
+    repetir 4
+      RecibirMensaje(id, *)
+      si id=8
+        RecibirMensaje(Ca,robot8)
+      sino
+        si id=10
+          RecibirMensaje(Ca,robot10)
+        sino
+          si id=6
+            RecibirMensaje(Ca,robot6)
+          sino
+            RecibirMensaje(Ca,robot4)
+      si(Ca>maxCa)
+        maxid:=id
+        maxCa:=Ca
+
+    Informar(maxid)
+  fin
+
+variables
+  robot4:tipo1
+  robot6:tipo1
+  robot8:tipo1
+  robot10:tipo1
+  robotJ:juez
+
+comenzar
+  AsignarArea(robot4,V1)
+  AsignarArea(robot6,V2)
+  AsignarArea(robot8,V3)
+  AsignarArea(robot10,V4)
+  AsignarArea(robotJ,inicio)
+
+  AsignarArea(robot4,fuente)
+  AsignarArea(robot6,fuente)
+  AsignarArea(robot8,fuente)
+  AsignarArea(robot10,fuente)
+
+  Iniciar(robot4,4,1)
+  Iniciar(robot6,6,1)
+  Iniciar(robot8,8,1)
+  Iniciar(robot10,10,1)
+  Iniciar(robotJ,1,1)
+
+
+fin

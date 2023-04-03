@@ -1,0 +1,21 @@
+ORG 1000H
+n1 DB 10
+n2 DB 2;cargar positivos
+
+ORG 3000H
+RESTO:CMP AL,AH
+JS FIN
+SUB AL,AH
+JMP RESTO
+
+FIN:RET
+;si n1 es mayor o igual a n2 entones resto
+;sino paso el valor de n1
+
+ORG 2000H
+MOV AL,n1
+MOV AH,n2
+CALL RESTO;el resto queda en al
+
+HLT
+END

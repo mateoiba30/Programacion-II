@@ -1,0 +1,32 @@
+un corredor puede estar en la calle 49 y avanzar hasta la calle 54, por lo tanto, debe estar una parte compartida entre la pareja del corredor y el escalador
+sabemos que esatmops haciendo muchas divisiones en el area, pero es lo mas representativo para el caso
+
+el area de los escaladores debe ser solo 1 compartida (donde también 
+incluya a los escaladores por si la llegan a pisar) o la dividimos en
+muchas areas donde no todas sean asignadas a todos los escaladores 
+y corredores?
+
+que hacemos cuando el corredor quiere ir a la 51?
+si llega a la 52, 53 o 54 hacemos que luego se teletransporte a su pos inicial?
+
+El corredor puede pasarse de la 50? -->si
+
+Está bien hacer que el corredor al terminar su recorrido se vuelva a su
+pos inicial para no interferir al escalador?-->si
+
+está bien declarar las areas de los escaladores como 1 compartida? o mejor al principio de su escalera la compartimos con su corredor y desp compartida con los otros escaladores? 
+
+en que momento avisarle al escalador que arranque? antes de moverse, desp de ir, o desp de analizar?
+
+en la 52,53,54 (en ellas debo avisar ni bien llego y bloquear, o debo avisar después de haber analizado)?
+el escalador arranca cuando el corredor termina de recolectar o cuando llegó al menos la 50?
+
+está bien si justo tiene q ir a la 51 q le avise de arrancar?
+
+si (id = 1)
+    RecibirMensaje(cant, r1)
+    /Actualizas máximo papeles si es necesario
+    si cant>max1 -> max2:=max1, maxID2:=maxID1, max1:=cant, maxID:=1
+
+por estas pregtunas emepzamos a armar el codigo haciendo que los corredores lleguen hasta max la 50, para empezar a hacer algo
+

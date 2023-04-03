@@ -1,0 +1,29 @@
+ORG 1000h
+a DB 3 ;parametro que viene por valor
+b DB 6; parametro que viene por referencia 
+
+org 3000h
+SUBR:push BX
+push AX
+
+mov BX,CX;bx apunta b
+mov AH,1;ah es res
+repetir:ADD AH,AH
+INC AL
+CMP Al,[BX];comparo a con b
+JNZ repetir
+
+mov  [BX],AH
+pop AX
+pop BX
+RET
+
+
+ORG 2000h
+mov AL,a ;AL guarda el valor del a
+mov CX,OFFSET b ; cx guarda la direccon de b
+
+call SUBR
+
+hlt
+END

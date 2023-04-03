@@ -1,0 +1,70 @@
+programa ej2-clase3
+procesos
+
+  proceso juntarFlores(ES contador:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      contador:=contador+1
+  fin
+
+  proceso recorrer_avenida (ES contador:numero)
+  comenzar
+    contador:=0
+    repetir 9
+      juntarFlores(contador)
+      mover
+    juntarFlores(contador)
+  fin
+
+areas
+  area1: AreaP(1,1,1,10)
+  area2: AreaP(2,11,2,20)
+  area3: AreaP(2,1,2,1)
+
+robots
+
+  robot tipo1
+  variables
+    cont:numero  
+  comenzar
+    recorrer_avenida(cont)
+    EnviarMensaje(cont,robot3)
+  fin
+  
+  robot tipo2
+  variables
+    cont:numero  
+  comenzar
+    recorrer_avenida(cont)
+    EnviarMensaje(cont,robot3)
+  fin
+
+  robot tipo3
+  variables
+    num1:numero
+    num2:numero
+  comenzar
+    RecibirMensaje(num1,*)
+    RecibirMensaje(num2,*)
+    si(num1>=num2)
+      num1:= num1 - num2
+    sino
+      num1:=num2 - num1
+    Informar(num1)
+  fin
+
+variables
+  robot1:tipo1
+  robot2:tipo2
+  robot3:tipo3
+
+comenzar
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,area3)
+  Iniciar(robot1,1,1)
+  Iniciar(robot2,2,11)
+  Iniciar(robot3,2,1)
+
+fin

@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=GasNatural
+comment1.params=nro_de_gestion\ fecha_solicitud\ ingresos_mensuales\ integrantes\ region\ persona\ nro_medidor\ m2_hogar\ cant_estufas
+comment1.target=GasNatural(java.lang.String,\ java.lang.String,\ double,\ int,\ java.lang.String,\ Persona,\ int,\ double,\ int)
+comment10.params=
+comment10.target=double\ CalcularTarifa()
+comment11.params=
+comment11.target=java.lang.String\ tostring()
+comment2.params=
+comment2.target=GasNatural()
+comment3.params=
+comment3.target=int\ getNro_medidor()
+comment4.params=nro_medidor
+comment4.target=void\ setNro_medidor(int)
+comment5.params=
+comment5.target=double\ getM2_hogar()
+comment6.params=m2_hogar
+comment6.target=void\ setM2_hogar(double)
+comment7.params=
+comment7.target=int\ getCant_estufas()
+comment8.params=cant_estufas
+comment8.target=void\ setCant_estufas(int)
+comment9.params=
+comment9.target=boolean\ AccedeAlSubcidio()
+numComments=12

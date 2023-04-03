@@ -1,0 +1,176 @@
+
+procesos 
+	proceso carrera_calle_50_papeles(ES esquina:numero) {ver bien si tengo que declarar esquina o no}
+	variables	
+		AvAnt,CaAnt,x,y:numero
+		seguir:boolean
+	comenzar
+		seguir:=T
+		x:=PosAv
+		y:=PosCa
+		[Declaro mis posiciones iniciales para poder tp al final]		
+		BloquearEsquina(1,50)
+		Pos(1,50)
+		AvAnt:=PosAv
+		CaAnt:=PosCa
+		si HayPapelEnLaBolsa
+			depositarPapel
+		sino
+			seguir:=F
+		{Veo si tengo papel para depositar y analizo la primer esquina}	
+		
+		mientras (PosAv<100) & (seguir) {inicio recorrido}
+			mover       
+			LiberarEsquina(AvAnt,CaAnt){no tendría q ir al final?}
+			si HayPapelEnLaBolsa
+				depositarPapel
+			AvAnt:=PosAv
+			CaAnt:=PosCa
+			BloquearEsquina(PosAv,PosCa)
+			{finaliza recorrido}
+
+		LiberarEsquina(AvAnt,CaAnt)
+		esquina:=PosAv
+		Pos(x,y)
+	fin
+
+	{----------------------------------------------------------------------------------------------}
+
+	proceso carrera_calle_50_flores(ES esquina:numero)
+	variables	
+		AvAnt,CaAnt,x,y:numero
+		seguir:boolean
+	comenzar
+		seguir:=T
+		x:=PosAv
+		y:=PosCa		
+		BloquearEsquina(1,50)
+		Pos(1,50)
+		AvAnt:=PosAv
+		CaAnt:=PosCa
+		si HayFlorEnLaBolsa
+			depositarFlor
+		sino
+			seguir:=F
+		
+		mientras (PosAv<100) & (seguir)
+			mover
+			LiberarEsquina(AvAnt,CaAnt)
+			si HayPapelEnLaBolsa
+				depositarPapel
+			AvAnt:=PosAv
+			CaAnt:=PosCa
+			BloquearEsquina(PosAv,PosCa)
+		
+		esquina:=PosAv
+		Pos(x,y)
+	fin
+
+	{----------------------------------------------------------------------------------------------}
+
+	proceso depositar_papeles_en_basurero
+	comenzar
+			mientras HayPapelEnLaBolsa	
+				BloquearEsquina(100,1)
+				Pos(100,1)
+				depositarPapel
+				Pos(x,y)
+				LiberarEsquina(100,1)
+	fin
+	{----------------------------------------------------------------------------------------------}
+
+	proceso carrera(ES contP:numero; ES habilita:boolean)
+	variables	
+		random:numero
+		seguir:boolean
+		x,y:numero
+	comenzar
+		x:=PosAv
+		y:=PosCa
+		seguir:=V {inicializo el seguir en verdadero, dado superada la calle vuelvo y envio mensaje de habilitacio al robot pareja}
+		mientras HayPapelEnLaEsquina  {analizo primer esquina}											
+      		tomarPapel
+	  		contP:=contP+1
+
+		mientras (seguir)
+
+			{Esta parte de codigo es PROVISORIA, someter A REVISION}
+
+			Random(random,1,5)
+			si (PosCa+random)=51 {si no se puede hacemos una variable para indicar el desplazamiento...}
+				habilita:=V {habilito para poder ir a esa posicion ya que estara el otro robot}
+				Pos(PosAv,PosCa+random)     {deberia el otro robot bloquearmela??}
+				mientras HayPapelEnLaEsquina
+					tomarPapel
+					contP:=contP+1
+				seguir:=F
+
+			{Esta parte de codigo es PROVISORIA, someter A REVISION}
+
+			sino
+				Pos(PosAv,PosCa+random)
+				mientras HayPapelEnLaEsquina
+					tomarPapel
+					contP:=contP+1
+				si (PosCa>=50)
+					seguir:=F
+				Pos(x,y) 	{terminada la avenida, vuelvo a mi posicion}
+				habilita:=V {habilito para que pueda ir mi pareja a escalar}
+
+			{REVISAR IDENTACION!!!}
+
+			
+
+	fin
+
+	{----------------------------------------------------------------------------------------------}
+
+  robot corredor
+  variables
+    x:numero
+    y:numero
+    id:numero
+    habilita:boolean
+	contP:numero
+	ganador:boolean
+	ganador1:numero
+	ganador2:numero
+
+  comenzar
+	
+    RecibirMensaje(id,robotJ) {recibo mensaje de quien soy por parte del juez}
+
+	contP:=0 {inicializo las variables para no perder mi posicion inicial, y pongo el contador en 0}
+
+	carrera(contP,habilita) {hago parte de la avenida}
+	
+    Pos(x,y) 	{terminada la avenida, vuelvo a mi inicio y habilito}
+    habilita:=V
+    si id=11
+    	EnviarMensaje(habilita,21) {veo que robot me corresponde habilitar}
+    sino 
+      si id=12
+        EnviarMensaje(habilita,22)
+      sino 
+        si id=13
+          EnviarMensaje(habilita,23)
+        sino
+          EnviarMensaje(habilita,24)
+	
+	EnviarMensaje(id,robotJ)
+	EnviarMensaje(contP,robotJ)
+    
+	{Veo si soy el mejor de los corredores}
+	RecibirMensaje(ganador1,robotJ)
+	RecibirMensaje(ganador2,robotJ)
+
+
+	si ((id=ganador1)||(id=ganador2)){Dado por cierto, voy una vez por turno a dejar el papel en la 100,1} 
+		depositar_en_basurero
+	sino                   
+		carrera_calle_50_papeles(esquina)	 {VOY A MODULARIZAR EL RECORRIDO, EVALUAR SI ESTA BIEN}
+		{NO-->EnviarMensaje(esquina,robotJ) {mando en que avenida termine, con un texto luego al informar indico que me encuentro en la esquina 50,y la avenida enviada}}
+		{el robot informa la esquina a la que llegó}
+		Informar(PosAv)
+		Informar(50)
+  fin

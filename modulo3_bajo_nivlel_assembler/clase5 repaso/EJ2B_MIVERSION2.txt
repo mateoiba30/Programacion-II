@@ -1,0 +1,53 @@
+ORG 1000H
+TablaA DB 1, 2, 5, 4, 30
+TablaB DB 1, 7, 5, 9, 7
+RESUL DB ?
+
+ORG 3000H
+SUBR:PUSH AX
+PUSH BX
+PUSHF
+
+;AH ES A POR VALOR, AL ES RES, BX TIENE LA DIRECCION DE B
+MOV AL,1
+
+REPEATT:ADD AL,AL
+INC AH
+CMP AH,[BX]
+JNZ REPEATT
+
+MOV [BX],AL
+
+POPF
+POP BX
+POP AX
+RET
+
+ORG 2000H ;Programa
+MOV AX, OFFSET TablaA ; dir. de TablaA
+MOV CX, OFFSET TablaB ; dir. de TablaB
+MOV DL, OFFSET TablaB - OFFSET TablaA ; cantidad de elementos de las tablas
+MOV DH, 0 ;RESUL
+
+;AH ES A POR VALOR, AL ES RES, BX TIENE LA DIRECCION DE B
+FOR:PUSH AX
+MOV BX, AX
+MOV AH, [BX]
+MOV BX, CX
+CMP AH,[BX]
+JNS SALTO2
+CALL SUBR
+SALTO2:MOV AL,[BX]
+CMP AL, 10
+POP AX
+JNS SALTO
+MOV BX, CX
+ADD DH,[BX]; suma del valor de TablaB
+SALTO: INC AX ; para avanzar en la TablaA
+INC CX ; para avanzar en la TablaB
+DEC DL
+JNZ FOR
+
+MOV RESUL, DH; guardamos la suma
+FIN:HLT
+END

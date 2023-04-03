@@ -1,0 +1,33 @@
+import java.util.Scanner; 
+public class ej4v2 {
+    public static void main (String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        Partido [] vectorP= new Partido[T];//325 dice la consigna
+        
+        CargarPartido(vectorP,in);
+        
+        in.close();
+    }
+
+    public static Partido[] CargarVector (Partido[] vectorP, Scanner in){
+        int i,T=2;
+
+        for(i=0;i<T;i++){
+            Partido p=new Partido(); //inicializamos e instanciamos
+
+            System.out.println("Ingrese el local ");
+            vectorP[i].setLocal(in.next());//se puede hacer de esta manera
+
+            System.out.println("Ingrese el visitante ");
+            vectorP[i].setVisitante(in.next());
+
+            System.out.println("Ingrese goles del local ");
+            vectorP[i].setGolesLocal(in.nextInt());//se puede hacer de esta manera
+
+            System.out.println("Ingrese goles del visitante ");
+            vectorP[i].setGolesVisitante(in.nextInt());
+        }
+        return vectorP;
+    }
+}

@@ -1,0 +1,16 @@
+//if
+ORG 1000h
+
+CMP AL,4
+JZ then
+JMP else
+
+then: MOV BL,1
+INC CL
+JMP fin
+
+else:MOV BL,2
+DEC CL
+
+fin:hlt
+end

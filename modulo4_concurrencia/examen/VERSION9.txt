@@ -1,0 +1,487 @@
+programa cod_promocion
+{----------------------------------------------------------}
+procesos
+
+{---------------corredores/escaladores perdedores----------}
+  proceso carrera_calle_50_papeles(ES esquina:numero) {ver bien si tengo que declarar esquina o no}
+  variables  
+    AvAnt,x,y:numero
+    seguir:boolean
+  comenzar
+    derecha {se posicionan para recorrer una calle (tanto los escaladores y correcores quedaron mirando hacia arriba)}
+    seguir:=V {inicializamos el booleano}
+    x:=PosAv 
+    y:=PosCa {guardamos posicion de inicio para luego de la carrera irse y no obstruir al resto}
+
+    BloquearEsquina(1,50)
+    Pos(1,50) {va al inicio del recorrido}
+
+    AvAnt:=PosAv {la calle siempre es 50, la avenida hay que guardar la anterior para liberar}
+    {puede ser que nunca entre al mientras, nunca haga el AvAnt:=PosAv de su interior, y al final quiera volver al inicio}
+
+    si HayPapelEnLaBolsa{analizo 1er esquina}
+      depositarPapel
+    sino
+      seguir:=F
+    {Veo si tengo flor para depositar y analizo la primer esquina}  
+
+    mientras (PosAv<100) & (seguir) {como 1er condicion me aseguro de no pasarme de la ciudad, y luego de seguir teniendo papeles}
+    {inicio recorrido: bloqueo sig, avanzo, libero anterior, analizo}
+      AvAnt:=PosAv {guardo pos anterior}
+      si HayPapelEnLaBolsa
+        BloquearEsquina(PosAv + 1,PosCa)
+        mover      
+        LiberarEsquina(AvAnt,PosCa) 
+        depositarPapel
+      sino
+        seguir:=F
+      
+      Pos(x,y){libero la ultima esquina}
+      LiberarEsquina(AvAnt,50)
+      esquina:=AvAnt +1
+      
+    repetir 3
+      derecha {para que regresen con su misma orientacion}
+  fin
+
+{-----}
+  proceso carrera_calle_50_flores(ES esquina:numero) {ver bien si tengo que declarar esquina o no}
+  variables  
+    AvAnt,x,y:numero
+    seguir:boolean
+  comenzar
+    derecha {se posicionan para recorrer una calle (tanto los escaladores y correcores quedaron mirando hacia arriba)}
+    seguir:=V {inicializamos el booleano}
+    x:=PosAv 
+    y:=PosCa {guardamos posicion de inicio para luego de la carrera irse y no obstruir al resto}
+
+    BloquearEsquina(1,50)
+    Pos(1,50) {va al inicio del recorrido}
+
+    AvAnt:=PosAv {la calle siempre es 50, la avenida hay que guardar la anterior para liberar}
+    {puede ser que nunca entre al mientras, nunca haga el AvAnt:=PosAv de su interior, y al final quiera volver al inicio}
+
+    si HayFlorEnLaBolsa{analizo 1er esquina}
+      depositarFlor
+    sino
+      seguir:=F
+    {Veo si tengo flor para depositar y analizo la primer esquina}  
+
+    mientras (PosAv<100) & (seguir) {como 1er condicion me aseguro de no pasarme de la ciudad, y luego de seguir teniendo papeles}
+    {inicio recorrido: bloqueo sig, avanzo, libero anterior, analizo}
+      AvAnt:=PosAv {guardo pos anterior}
+      si HayFlorEnLaBolsa
+        BloquearEsquina(PosAv + 1,PosCa)
+        mover      
+        LiberarEsquina(AvAnt,PosCa) 
+        depositarFlor
+      sino
+        seguir:=F
+             
+      Pos(x,y){libero la ultima esquina}
+      LiberarEsquina(AvAnt,50)
+      esquina:=AvAnt + 1
+      
+    repetir 3
+      derecha {para que regresen con su misma orientacion}
+  fin
+
+{------------corredores/escaladores ganadores----------}
+  proceso depositar_papeles_en_basurero(ES contP:numero)
+  variables
+    x,y:numero
+  comenzar
+    x:=PosAv
+    y:=PosCa
+
+    repetir contP {ya sabemos exactamente cuantas veces repetir}
+      BloquearEsquina(100,1)
+      Pos(100,1)
+      depositarPapel
+      Pos(x,y)
+      LiberarEsquina(100,1)
+  fin
+
+{------}
+  proceso depositar_flores_en_basurero(ES contF:numero)
+  variables
+    x,y:numero
+  comenzar
+    x:=PosAv
+    y:=PosCa
+
+    repetir contF {ya sabemos exactamente cuantas veces repetir}
+      BloquearEsquina(100,1)
+      Pos(100,1)
+      depositarFlor
+      Pos(x,y)
+      LiberarEsquina(100,1)
+  fin
+
+
+{----------procesos corredores---------------}
+  proceso carrera(ES contP:numero)
+  variables  
+    random,x,y:numero
+    seguir:boolean
+  comenzar    
+    x:=PosAv
+    y:=PosCa
+    seguir:=V {inicializo el seguir en verdadero, dado superada la calle vuelvo y envio mensaje }
+
+    mientras (HayPapelEnLaEsquina) {analizo primer esquina}                      
+      tomarPapel
+      contP:=contP+1
+
+    mientras (seguir)
+      Random(random,1,5)
+      si ((PosCa + random) >= 50)
+        Pos(PosAv,50) {nos aseguramos de no caer donde se encuentra el escalador}  
+      sino
+        Pos(PosAv,PosCa+random)
+      mientras HayPapelEnLaEsquina
+        tomarPapel
+        contP:=contP+1
+      si (PosCa>=50)
+        seguir:=F
+    Pos(x,y)   {terminada la avenida, vuelvo a mi posicion}
+  fin
+
+
+{----------procesos escaladores-----------}
+  proceso hacer_escalera(ES contF:numero)
+  variables
+    num,x,y,xi,yi:numero
+  comenzar
+    xi:=PosAv
+    yi:=PosCa {guardo pos de inicio para regresar al final}
+
+    mientras(HayFlorEnLaEsquina)  {no olvidar de analizar 1er esquina}
+      tomarFlor
+      contF:=contF + 1
+
+    repetir 5 {5 escalones}
+
+      x:=PosAv {cuando se mueve para arriba la x es constante, la calculo 1 vez}
+      repetir 3 {3 de altura}
+        y:=PosCa {la altura varia, la calculo cada repeticion}
+        BloquearEsquina(x,y + 1)  {bloqueo sig, muevo, libero, analizo}
+        mover
+        LiberarEsquina(x,y)
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+          contF:=contF+1
+
+      derecha {cambio de direccion y claculo random para hacer el ancho}
+      Random(num,3,5)
+
+      y:=PosCa {cuando se mueve para el costado la altura es constante}
+      repetir num {ancho random}
+        x:=PosAv {la x es la que cambia, la calculo cada repeticion}
+        BloquearEsquina(x + 1,y)  {bloqueo sig, muevo, libero, analizo}
+        mover
+        LiberarEsquina(x,y)
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+          contF:=contF+1
+
+      repetir 3
+        derecha  {me posiciono para volver a hacer el alto}
+
+    Pos(xi,yi) {regreso}
+    LiberarEsquina(x + 1,y){liberar la ultima esquina del escalon}
+  
+  fin
+
+{-------procesos juez----------------}
+  proceso maximos(ES cont:numero; ES id:numero; ES contmax1:numero; ES contmax2:numero; ES idmax1:numero; ES idmax2:numero)
+  comenzar {calculo si el valor enviado es mayor a los 2 maximos}
+    si(cont>contmax1)
+      contmax2:=contmax1
+      idmax2:=idmax1
+      contmax1:=cont
+      idmax1:=id
+    sino
+      si (cont > contmax2)
+        contmax2:=cont
+        idmax2:=id
+  fin
+
+{------}
+  proceso max(ES cont:numero; ES id:numero; ES contmax:numero; ES idmax:numero)
+  comenzar  {calculo si el valor enviado es mayor al maximo}
+    si(cont > contmax)
+      contmax:=cont
+      idmax:=id
+  fin
+
+{---------------------------------------------------------------}
+areas
+{area escaladores}
+  area_escaladores: AreaC(5,51,45,66)
+
+{carrera perdedores}
+  calle_carrera: AreaC(1,50,100,50)
+
+{recorrido de cada corredor}
+  area_c1: AreaP(5,1,5,49)
+  area_c2: AreaP(10,1,10,49)
+  area_c3: AreaP(15,1,15,49)
+  area_c4: AreaP(20,1,20,49)
+
+{area juez}
+  area_juez: AreaP(1,1,1,1)
+
+{area ganadores}
+  basurero: AreaPC(100,1,100,1)
+
+{----------------------------------------------------------}
+robots
+
+{-----------corredor---------------}
+  robot corredor
+  variables
+    id,contP,ganador1,ganador2,esquina:numero
+    habilita:boolean
+
+  comenzar
+    RecibirMensaje(id,robotJ) {recibo mensaje de quien soy por parte del juez}
+    contP:=0 {inicializo las variables para no perder mi posicion inicial, y pongo el contador en 0}
+
+    carrera(contP) {hago parte de la avenida}
+
+    si id=11 {veo que robot me corresponde habilitar}
+      EnviarMensaje(habilita,robote1)
+    sino 
+      si id=12
+        EnviarMensaje(habilita,robote2){no importa el valor de habilita}
+      sino 
+        si id=13
+          EnviarMensaje(habilita,robote3)
+        sino
+          EnviarMensaje(habilita,robote4)
+
+    EnviarMensaje(id,robotJ) {le dice al juez cuantos papeles recolectó}
+    EnviarMensaje(contP,robotJ)
+    
+    RecibirMensaje(ganador1,robotJ)  {Veo si soy el mejor de los corredores}
+    RecibirMensaje(ganador2,robotJ)
+    
+    si id=ganador1 {ver si es ganador o perdedor}
+      depositar_papeles_en_basurero(contP)
+    sino
+      si id=ganador2
+        depositar_papeles_en_basurero(contP)
+      sino
+        carrera_calle_50_papeles(esquina)
+        Informar('calle_50_y_avenida_',esquina)
+  fin
+
+{-----------escalador------------}
+  robot escalador 
+  variables
+    id,contF,esquina,ganador1,ganador2:numero
+    habilita:boolean
+
+  comenzar
+    contF:=0  {inicio contador}
+    RecibirMensaje(id,robotJ)    {recibe el id}
+
+    {espera a que su pareja le diga de iniciar}
+    si id=21
+      RecibirMensaje(habilita,robotc1)
+    sino
+      si id=22
+        RecibirMensaje(habilita,robotc2)
+      sino
+        si id=23
+          RecibirMensaje(habilita,robotc3)
+        sino
+          RecibirMensaje(habilita,robotc4)
+
+    hacer_escalera(contF)  {hacer escalera contando flores}
+
+    EnviarMensaje(id,robotJ)    {una vez terminada la escalera envía el contador al juez}
+    EnviarMensaje(contF,robotJ)
+      
+    RecibirMensaje(ganador1,robotJ)    {Veo si soy el mejor de los corredores}
+    RecibirMensaje(ganador2,robotJ)
+
+    si id=ganador1 {ve si es ganador o perdedor}
+      depositar_flores_en_basurero(contF)
+    sino
+      si id=ganador2
+        depositar_flores_en_basurero(contF) 
+      sino
+        carrera_calle_50_flores(esquina)
+        Informar('calle_50_y_avenida_',esquina)
+  fin
+
+{--------------juez--------------}
+  robot juez
+  variables
+    id,cont,Ccontmax,Cidmax,Econtmax,Eidmax,contmax1,contmax2,idmax1,idmax2:numero
+    es_corredor:boolean
+
+  comenzar
+    contmax1:=-1 {inicializo maximos}
+    contmax2:=-1
+    Ccontmax:=-1
+    Econtmax:=-1
+
+    EnviarMensaje(11,robotc1)   {asignar ids}
+    EnviarMensaje(12,robotc2)
+    EnviarMensaje(13,robotc3)
+    EnviarMensaje(14,robotc4)
+
+    EnviarMensaje(21,robote1)
+    EnviarMensaje(22,robote2)
+    EnviarMensaje(23,robote3)
+    EnviarMensaje(24,robote4)
+
+   {recibir contadores y determinar maximos}
+    repetir 8
+		  es_corredor:=F {inicializo el booleano}
+
+      RecibirMensaje(id,*) {recibe id}
+      {recibo id, contador y me fijo si es o no corredor}
+      si id=11
+        RecibirMensaje(cont,robotc1)
+        es_corredor:=V
+      sino
+        si id=12
+          RecibirMensaje(cont,robotc2)
+          es_corredor:=V
+        sino
+          si id=13
+            RecibirMensaje(cont,robotc3)
+            es_corredor:=V
+          sino
+            si id=14
+              RecibirMensaje(cont,robotc4)
+              es_corredor:=V
+            sino
+              si id=21
+                RecibirMensaje(cont,robote1)
+              sino
+                si id=22
+                  RecibirMensaje(cont,robote2)
+                sino
+                  si id=23
+                    RecibirMensaje(cont,robote3)
+                  sino
+                    si id=24
+                      RecibirMensaje(cont,robote4)
+
+      {calculo el maximo de flor o papel segun corresponda}
+      si(es_corredor)
+        max(cont,id,Ccontmax,Cidmax) 
+      sino
+        max(cont,id,Econtmax,Eidmax)
+
+      {analizo los 2 maximos de elemntos}
+      maximos(cont,id,contmax1,contmax2,idmax1,idmax2)
+
+    {informo corredor y escalador ganador}
+    Informar('corredor_ganador_',Cidmax)
+    Informar('escalador_ganador_',Eidmax)
+
+    {envia mensaje de los 2 ganadores a todos para q cada uno sepa si gano}
+    EnviarMensaje(idmax1,robotc1)
+    EnviarMensaje(idmax2,robotc1) 
+    
+    EnviarMensaje(idmax1,robotc2)
+    EnviarMensaje(idmax2,robotc2)
+    
+    EnviarMensaje(idmax1,robotc3)
+    EnviarMensaje(idmax2,robotc3)
+    
+    EnviarMensaje(idmax1,robotc4)
+    EnviarMensaje(idmax2,robotc4)
+
+    EnviarMensaje(idmax1,robote1)
+    EnviarMensaje(idmax2,robote1)
+
+    EnviarMensaje(idmax1,robote2)
+    EnviarMensaje(idmax2,robote2)
+    
+    EnviarMensaje(idmax1,robote3)
+    EnviarMensaje(idmax2,robote3)
+    
+    EnviarMensaje(idmax1,robote4)
+    EnviarMensaje(idmax2,robote4)
+  
+  fin
+
+{------------------------------------------------}
+variables
+
+{declaramos 4 corredores}
+  robotc1:corredor
+  robotc2:corredor
+  robotc3:corredor
+  robotc4:corredor
+
+{declaramos 4 escaladores}
+  robote1: escalador
+  robote2: escalador
+  robote3: escalador
+  robote4: escalador
+
+{declaramos al juez}
+  robotJ: juez
+
+comenzar
+{area juez}
+  AsignarArea(robotJ,area_juez)
+
+{areas corredores}
+  AsignarArea(robotc1,area_c1)
+  AsignarArea(robotc1,calle_carrera)
+  AsignarArea(robotc1,basurero)
+
+  AsignarArea(robotc2,area_c2)
+  AsignarArea(robotc2,calle_carrera)
+  AsignarArea(robotc2,basurero)
+
+  AsignarArea(robotc3,area_c3)
+  AsignarArea(robotc3,calle_carrera)
+  AsignarArea(robotc3,basurero)
+
+  AsignarArea(robotc4,area_c4)
+  AsignarArea(robotc4,calle_carrera)
+  AsignarArea(robotc4,basurero)
+
+{areas escaladores}
+  AsignarArea(robote1,area_escaladores)
+  AsignarArea(robote1,calle_carrera)
+  AsignarArea(robote1,basurero)
+
+  AsignarArea(robote2,area_escaladores)
+  AsignarArea(robote2,calle_carrera)
+  AsignarArea(robote2,basurero)
+
+  AsignarArea(robote3,area_escaladores)
+  AsignarArea(robote3,calle_carrera)
+  AsignarArea(robote3,basurero)
+
+  AsignarArea(robote4,area_escaladores)
+  AsignarArea(robote4,calle_carrera)
+  AsignarArea(robote4,basurero)
+
+{iniciamos al juez}
+  Iniciar(robotJ,1,1)
+
+{iniciamos a los corredores} 
+  Iniciar(robotc1,5,1) 
+  Iniciar(robotc2,10,1) 
+  Iniciar(robotc3,15,1)  
+  Iniciar(robotc4,20,1) 
+
+{iniciamos a los escaladores} 
+  Iniciar(robote1,5,51) 
+  Iniciar(robote2,10,51) 
+  Iniciar(robote3,15,51)  
+  Iniciar(robote4,20,51) 
+
+fin

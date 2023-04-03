@@ -1,0 +1,23 @@
+ORG 1000H
+n1h DW 0000
+n1l DW 1234
+n2h DW 4321
+n2l DW 0000
+
+ORG 2000h
+
+MOV AX, n1h
+MOV BX, n2h
+MOV CX, n1l
+MOV DX, n2l
+CALL SUM32;lo alto en AX y lo bajo en CX
+
+ORG 3000H
+SUM32: ADD AX,BX
+ADD CX,DX
+JNC salto
+INC AX
+salto:RET
+
+hlt
+end

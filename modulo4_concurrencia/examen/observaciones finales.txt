@@ -1,0 +1,59 @@
+15/11
+el área del depósito de ganadores es la única parcialmente compartida debido que es el único área donde pueden ir varios robots pero solo 1 a la vez
+
+el paso de los corredores es de un random de 1 a 5, si justo el random es de 1 podríamos hacer un mover en lugar de un teletransportar, pero no se ganaba eficiencia
+y el código quedaba menos legible
+
+si el salto del corredor sobrepasaba la calle 50, lo mejor no era repetir el random hasta que haya un numero que nos sirva, lo mejor era decrementar el random obtenido
+o simplemente llevar el robot hasta la calle 50
+
+el juez es mujor que reciba ids y que el mismo identifique si es corredor o no. Si primero esperaría los mensajes de los corredores no tiene sentido ya que existe la
+posibilidad de que un escalardor termine antes que un corredor. Gracias a esto es que también puede recibir los 8 mensajes haciendo un repetir 8 y dentro de este
+repetir voy comparando cada contador con los máximos
+
+en el hacer escalera, para avanzar e ir bloqueando lo que hay que hacer es: bloqueo siguiente esquina, moverse, liberar esquina anterior y analizar esquina actual
+
+en el correr calle 50, para perdedore para avanzar e ir bloqueando lo que hay que hacer es: bloqueo siguiente esquina, moverse, liberar esquina anterior y analizar esquina actual
+
+16/11
+el proceso de la carrera de la calle 50 para los perdedores al inicio los orienta a los robots hacia la derecha, y es muy importante para una buena reutilizacción del 
+códigop que al final del mismo los robots nuevamente se orienten hacia la izquiera
+
+17/11
+los ganadores al depositar flores o papeles pueden hacerlo con un repetir, ya que gracias al contador sabemos perfectamente cuantas veces iterar la subrutina
+
+no se puede hacer el proceso de correr calle 50 con un repetir debido a que no hay que pasarse del area asignada.
+
+en un principio habíamos interpretado que cada ganador debía teletransportarse a la (100,1), vaciar su bolsa e irse.
+
+18/11
+en el proceso de hacer escalera no hace falta calcular muchas veces la posición con pos av. Si se mueve hacia la derecha, la calle es constante y la avenida va
+aumentando en uno por cada repétición. Luego, cuando va hacia arriba la avenida es constante, y la calle va aumentando en uno por cada repetición
+
+para determinar quienes ganaron es mucho más sencillo que el juez le envíe los 2 ganadores a todos los robots y que cada uno se fije si ganó
+
+Cada escalador cuando hace el 1er escalón nunca se puede cruzar a un robot, a escepción quwe el random sea de 5, en la última pos del 1er escalón es cuando
+debería empezar a bloquear. Podríamos solo hacer el bloquear y liberar esquina desde entonces, pero la asignación de areas sería mucho más compleja para un problema
+nada grave
+
+19/11
+dentro del correr calle 50 para perdedores, si un robot perdió y tiene cero elementos va a llegar hasta la misma posicion que si tuvo un elemento. También, un robot que
+tenga 100 elemntos informará lo mismo que uno que tenga más
+
+dentro del proceso de hacer escalera y el de correr calle 50
+
+no hay que olvidar que en el proceso de hacer la escalera de los escaladores tengo una iteración donde bloqueo, muevo, libero y analizo. Motivo por el cual al 
+finalizar el bucle la última esquina fue analizada. En un principio nos habíamos olvidado de hacer antes del bucle que analize la 1er esquina
+
+no hay que olvidar que en el proceso de carrera calle 50 para perdedores tengo una iteración donde bloqueo, muevo, libero y analizo. Motivo por el cual al 
+finalizar el bucle la última esquina fue analizada. En un principio al finalizar este bucle volvíamos a analizar la última esquina
+
+para chequear funcionamiento nos dimos cuenta que los robots perdedores nunca finalizaban la calle 50 motivo por el cual pusimos 100 papeles al c1,c2 y c3. AL resto
+nada. Entonces os 2 másximos son corredores y uno de los 3 calificaba como perdedor, recorrió toda la 50 y no se fue de su area
+
+20/11
+en el proceso de correr calle 50 para perdedores, hacemos el liberar esquina anterior antes que analizar la esquina en la que el robot se encuentra porque apenas se
+movió ya debería darle lugar al siguiente robot
+
+en el proceso de hacer escalera, hacemos el liberar esquina anterior antes que analizar la esquina en la que el robot se encuentra porque apenas se
+movió ya debería darle lugar al siguiente robot

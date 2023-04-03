@@ -1,0 +1,41 @@
+ORG 1000H
+tabla 	DB 	1,4,5,3,10,7,14,78,23,18
+fintb db ?
+valor	DB 	3
+
+
+org 3000h
+sumar:mov bx,sp
+add bx,4;bx apunta a la direccion del elemnto a analiazar
+mov ah,0
+add ah,ch
+mov [bx],ah;bx apunta a la direccion del elemnto de la dir del principio mas el contador
+mov bx,[bx];bx tiene la direccion del elemento
+mov cl,[bx];cl tiene el valor del elemento
+mov bx,sp
+add bx,2;bx apunta al valor a agregar
+mov al,[bx];al tiene el valor a agregar
+add cl,al;cl tiene el valor final
+add bx,2;bx apunta a la direccion del elemento
+mov bx,[bx];bx tiene la direccion de la variable del elemento
+mov [bx],cl;modifico el valor de la variable
+ret;como no hice pushs no hago pops, solo usé sp
+
+
+org 2000h
+mov dx, offset fintb-offset tabla; dx cuenta la cant de elemntos que quedan por analizar
+mov bx,offset tabla; bx apunta al elemnto a analizar
+mov ax,valor; ax contiene el valor a agregar
+mov ch,0 ;
+push dx
+push bx
+push ax;paso por pila todo
+recorrer:call sumar; sumo el valor en elemnto de la tabla
+inc ch
+dec dx
+jnz recorrer;reitero si me quedan elemntos
+pop ax
+pop bx
+pop dx;libero la pila
+hlt
+end

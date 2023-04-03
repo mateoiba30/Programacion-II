@@ -1,0 +1,37 @@
+programa ej1_clase2
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    contf:numero
+    contev:numero
+  comenzar
+  
+    repetir 5
+      contf:=0
+      contev:=0   
+      repetir 99
+        si ~(HayFlorEnLaEsquina)
+          contev:=contev+1
+        mientras(HayFlorEnLaEsquina)
+          tomarFlor
+          contf:=contf+1     
+        mover    
+      si ~(HayFlorEnLaEsquina)
+        contev:=contev+1  
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        contf:=contf+1          
+      mientras(HayFlorEnLaBolsa)
+        depositarFlor
+      Informar(contf)
+      Informar(contev)
+      Pos(PosAv+2,1) 
+  fin
+variables
+  Rinfo:robot1
+comenzar
+  AsignarArea(Rinfo,ciudad)
+  Iniciar(Rinfo,1,1)
+fin

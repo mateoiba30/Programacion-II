@@ -1,0 +1,25 @@
+ORG 1000H
+car DB "b"
+vocales DB "aeiouAEIOU"
+
+
+ORG 3000H
+ES_VOCAL:MOV AH,0H
+REPETIR:CMP AL,[BX]
+JZ FIN2;si es vocal termino y cambio AH
+INC BX
+CMP BX,100BH;si termine la tabla terimo
+JZ FIN
+JMP REPETIR;reptio
+FIN2:MOV AH,0FFH
+FIN:RET
+
+ORG 2000H
+
+MOV AL,car
+MOV BX,OFFSET vocales; mas reutilizable
+CALL ES_VOCAL
+;AH=0H si no es vocal
+;AH=0FFH SI ES VOCAL
+HLT
+END

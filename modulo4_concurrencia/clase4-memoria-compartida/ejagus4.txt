@@ -1,0 +1,101 @@
+programa nombrePrograma 
+ procesos 
+   proceso maximo(ES max:numero E ca:numero ES robMax:numero E rob:numero) 
+   comenzar  
+     si ca>max  
+       max:=ca  
+       robMax:=rob 
+   fin 
+ areas 
+   fuente: AreaPC (11,11,11,11) 
+   areaToretto: AreaP(4,1,4,100) 
+   areaFangio: AreaP(6,1,6,100) 
+   areaSenna: AreaP(8,1,8,100) 
+   areaSchumacher: AreaP(10,1,10,100) 
+   areaJuez: AreaP(1,1,1,1) 
+ robots 
+   robot robot1 
+   variables 
+     quienSoy:numero 
+     bool: boolean 
+     x:numero 
+     y:numero 
+   comenzar 
+     x:=PosAv 
+     bool:=V 
+     RecibirMensaje(quienSoy,pitana) 
+     mientras (bool) & (PosCa<100) 
+       x:=PosAv 
+       y:=PosCa 
+       BloquearEsquina(11,11) 
+       Pos(11,11) 
+       si HayFlorEnLaEsquina 
+         tomarFlor 
+         Pos(x,y) 
+         LiberarEsquina(11,11) 
+         mover 
+       sino  
+         bool:=F 
+         Pos(x,y) 
+         LiberarEsquina(11,11) 
+     si PosCa = 100 
+       BloquearEsquina(11,11) 
+       Pos(11,11) 
+       mientras HayFlorEnLaEsquina 
+         tomarFlor 
+       Pos(x,y) 
+       LiberarEsquina(11,11) 
+     EnviarMensaje(quienSoy, pitana) 
+     EnviarMensaje(y, pitana) 
+   fin 
+   robot juez 
+   variables 
+     max:numero 
+     robMax:numero 
+     aux:numero 
+   comenzar 
+     EnviarMensaje(1,toretto) 
+     EnviarMensaje(2,fangio) 
+     EnviarMensaje(3,senna) 
+     EnviarMensaje(4,schumacher) 
+     max:=0 
+     repetir 4 
+       RecibirMensaje(aux,*) 
+       si aux = 1  
+         RecibirMensaje(aux,toretto) 
+         maximo(max,aux,robMax,1) 
+       sino  
+         si aux = 2 
+           RecibirMensaje(aux,fangio) 
+           maximo(max,aux,robMax,2) 
+         sino  
+           si aux = 3 
+             RecibirMensaje(aux,senna) 
+             maximo(max,aux,robMax,3) 
+           sino 
+             RecibirMensaje(aux,schumacher) 
+             maximo(max,aux,robMax,4) 
+     Informar(robMax) 
+   fin 
+ variables 
+   toretto: robot1 
+   fangio: robot1 
+   senna: robot1 
+   schumacher: robot1 
+   pitana: juez 
+ comenzar 
+   AsignarArea (toretto,fuente) 
+   AsignarArea (fangio,fuente) 
+   AsignarArea (senna,fuente) 
+   AsignarArea (schumacher,fuente) 
+   AsignarArea (toretto,areaToretto) 
+   AsignarArea (fangio,areaFangio) 
+   AsignarArea (senna,areaSenna) 
+   AsignarArea (schumacher,areaSchumacher) 
+   AsignarArea (pitana,areaJuez) 
+   Iniciar (toretto,4,1) 
+   Iniciar (fangio,6,1) 
+   Iniciar (senna,8,1) 
+   Iniciar (schumacher,10,1) 
+   Iniciar(pitana,1,1) 
+ fin

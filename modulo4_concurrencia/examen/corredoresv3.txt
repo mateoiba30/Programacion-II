@@ -1,0 +1,124 @@
+	proceso depositar_papeles_en_basurero(ES contP:nuemro)
+	comenzar
+		repetir contP
+			BloquearEsquina(100,1)
+			Pos(100,1)
+			depositarPapel
+			Pos(x,y)
+			LiberarEsquina(100,1)
+	fin
+
+programa ej4-clase4
+procesos
+  proceso carrera_calle_50_papeles(ES esquina:numero) {ver bien si tengo que declarar esquina o no}
+  variables  
+    AvAnt,CaAnt,x,y:numero
+    seguir:boolean
+  comenzar
+    derecha
+    seguir:=V
+    x:=PosAv
+    y:=PosCa
+    {Declaro mis posiciones iniciales para poder tp al final}  
+    BloquearEsquina(1,50)
+    Pos(1,50)
+    AvAnt:=PosAv
+    CaAnt:=PosCa
+    si HayPapelEnLaBolsa
+      depositarPapel
+    sino
+      seguir:=F
+    {Veo si tengo flor para depositar y analizo la primer esquina}  
+    mientras (PosAv<100) & (seguir) {inicio recorrido}
+      AvAnt:=PosAv
+      CaAnt:=PosCa
+      si HayPapelEnLaBolsa
+        BloquearEsquina(PosAv + 1,PosCa)
+        mover      
+        LiberarEsquina(PosAv - 1,PosCa) 
+        depositarPapel
+      sino
+        seguir:=F
+        
+    si PosAv=100 {Hicimos walkthroug,estabamos bloqueando 2 VECES}  
+      si HayPapelEnLaBolsa
+        depositarPapel
+        Pos(x,y)
+        LiberarEsquina(100,50)
+        esquina:=100
+      sino
+        Pos(x,y)
+        LiberarEsquina(AvAnt,CaAnt)
+        esquina:=AvAnt
+    sino
+      Pos(x,y)
+      LiberarEsquina(AvAnt,CaAnt)
+      esquina:=AvAnt
+  fin
+
+
+areas
+  V1: AreaP(4,1,4,1)
+  V2: AreaP(6,1,6,1)
+  V3: AreaP(8,1,8,1)
+  V4: AreaP(10,1,10,1)
+  callesita: AreaC(1,50,100,50)
+
+
+robots
+
+  robot normal
+  variables
+    esquina:numero
+  comenzar
+    esquina:=0
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+    carrera_calle_50_papeles(esquina)
+    Informar('Calle_50_esquina',esquina)
+    EnviarMensaje(v,robotPete)
+    
+  fin
+  robot peton
+  variables
+  boleano1,booleano2,booleano3,booleano4:boolean
+  comenzar
+  RecibirMensaje(booleano1,*)
+  RecibirMensaje(booleano2,*)
+  RecibirMensaje(booleano3,*)
+  RecibirMensaje(booleano4,*)
+  Informar(booleano1)
+  Informar(booleano2)
+  Informar(booleano3)
+  Informar(booleano4)
+  
+  
+  fin
+
+variables
+  robot4:normal
+  robot6:normal
+  robot8:normal
+  robot10:normal
+  robotPete:peton
+
+comenzar
+  AsignarArea(robot4,V1)
+  AsignarArea(robot6,V2)
+  AsignarArea(robot8,V3)
+  AsignarArea(robot10,V4)
+  AsignarArea(robotPete,p)
+
+  AsignarArea(robot4,callesita)
+  AsignarArea(robot6,callesita)
+  AsignarArea(robot8,callesita)
+  AsignarArea(robot10,callesita)
+  
+  Iniciar(robotPete,1,1)
+  Iniciar(robot4,4,1)
+  Iniciar(robot6,6,1)
+  Iniciar(robot8,8,1)
+  Iniciar(robot10,10,1)
+
+
+fin
