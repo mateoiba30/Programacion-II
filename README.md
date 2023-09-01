@@ -11,7 +11,3 @@ Este repositorio contiene las prácticas realizadas en la materia **Programació
 - [modulo3_bajo_nivlel_assembler](modulo3_bajo_nivlel_assembler/)
 
 - [modulo4_concurrencia](modulo4_concurrencia/)
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
