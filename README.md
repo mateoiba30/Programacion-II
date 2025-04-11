@@ -1,6 +1,7 @@
 # Programación 2
 
 This repository contains the practices carried out in the subject **Programming 2**.
+Some of the folders contain the instructions in .docx files.
 
 ## Practices
 
