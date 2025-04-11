@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="grupo09.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="505"/>
+        <CursorPos X="28" Y="525"/>
+        <FoldState Value=" T4101 T3ic0A4 pj4jO0n9 piekR0F5]9ajQ0O-"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="7">
+      <Position>
+        <Filename Value="grupo09.pas"/>
+        <Caret Line="319" Column="126" TopLine="315"/>
+      </Position>
+      <Position>
+        <Filename Value="grupo09.pas"/>
+        <Caret Line="338" Column="34" TopLine="317"/>
+      </Position>
+      <Position>
+        <Filename Value="grupo09.pas"/>
+        <Caret Line="291" Column="23" TopLine="284"/>
+      </Position>
+      <Position>
+        <Filename Value="grupo09.pas"/>
+        <Caret Line="373" Column="17" TopLine="325"/>
+      </Position>
+      <Position>
+        <Filename Value="grupo09.pas"/>
+        <Caret Line="403" Column="16" TopLine="382"/>
+      </Position>
+      <Position>
+        <Filename Value="grupo09.pas"/>
+        <Caret Line="459" Column="6" TopLine="436"/>
+      </Position>
+      <Position>
+        <Filename Value="grupo09.pas"/>
+        <Caret Line="527" Column="6" TopLine="504"/>
+      </Position>
+      <Position>
+        <Filename Value="grupo09.pas"/>
+        <Caret Line="493" Column="14" TopLine="487"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

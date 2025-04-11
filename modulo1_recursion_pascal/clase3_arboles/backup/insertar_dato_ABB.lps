@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="insertar_dato_ABB.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="155"/>
+        <CursorPos X="31" Y="169"/>
+        <FoldState Value=" T3S085v"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\..\AppData\Local\Temp\Rar$DIa2064.34850\ProgramaGenerarLista.pas"/>
+        <UnitName Value="arboles"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="1">
+      <Position>
+        <Filename Value="insertar_dato_ABB.pas"/>
+        <Caret Line="166" Column="18" TopLine="146"/>
+      </Position>
+      <Position>
+        <Filename Value="insertar_dato_ABB.pas"/>
+        <Caret Line="163" Column="16" TopLine="146"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

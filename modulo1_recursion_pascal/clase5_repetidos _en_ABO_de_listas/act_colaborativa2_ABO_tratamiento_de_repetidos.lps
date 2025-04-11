@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="act_colaborativa2_ABO_tratamiento_de_repetidos.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="56"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="4">
+      <Position>
+        <Filename Value="act_colaborativa2_ABO_tratamiento_de_repetidos.lpr"/>
+        <Caret Line="20" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="act_colaborativa2_ABO_tratamiento_de_repetidos.lpr"/>
+        <Caret Line="40" Column="24" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="act_colaborativa2_ABO_tratamiento_de_repetidos.lpr"/>
+        <Caret Line="41" Column="31" TopLine="30"/>
+      </Position>
+      <Position>
+        <Filename Value="act_colaborativa2_ABO_tratamiento_de_repetidos.lpr"/>
+        <Caret Line="100" Column="8" TopLine="58"/>
+      </Position>
+      <Position>
+        <Filename Value="act_colaborativa2_ABO_tratamiento_de_repetidos.lpr"/>
+        <Caret Line="61" TopLine="57"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

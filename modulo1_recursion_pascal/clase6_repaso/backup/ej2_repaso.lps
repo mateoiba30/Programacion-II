@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ej2_repaso.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="329"/>
+        <CursorPos X="36" Y="350"/>
+        <FoldState Value=" T3kA0T0624"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="9">
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="255" Column="27" TopLine="250"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="303" Column="6" TopLine="283"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="54" Column="21" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="98" Column="19" TopLine="70"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="109" Column="14" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="22" Column="8" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="225" Column="30" TopLine="213"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="245" TopLine="240"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="350" Column="34" TopLine="322"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_repaso.lpr"/>
+        <Caret Line="219" Column="19" TopLine="206"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="246"/>
+        <CursorPos X="53" Y="262"/>
+        <FoldState Value=" T3iE08031117"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="14">
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="222" Column="23" TopLine="216"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="225" Column="49" TopLine="215"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="287" Column="18" TopLine="270"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="261" Column="15" TopLine="247"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="255" Column="28" TopLine="236"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="253" Column="14" TopLine="235"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="259" Column="13" TopLine="243"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="109" Column="23" TopLine="247"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="117" Column="20" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="227" TopLine="217"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="264" Column="21" TopLine="243"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="238" Column="52" TopLine="234"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="265" Column="19" TopLine="241"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="264" Column="21" TopLine="255"/>
+      </Position>
+      <Position>
+        <Filename Value="borrar_elemen_ABO.lpr"/>
+        <Caret Line="117" Column="23" TopLine="98"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

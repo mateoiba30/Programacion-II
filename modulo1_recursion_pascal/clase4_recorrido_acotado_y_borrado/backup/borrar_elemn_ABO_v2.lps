@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="borrar_elemn_ABO_v2.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="244"/>
+        <CursorPos X="23" Y="265"/>
+        <FoldState Value=" T3iE08031u"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clase4_recorrido_y_busqueda.lpr"/>
+        <UnitName Value="clase4_ejercicio"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="74"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\clase6_repaso\lista_de_listas_y_arbol_de_listas.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="273"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory>
+      <Position>
+        <Filename Value="borrar_elemn_ABO_v2.lpr"/>
+        <Caret Line="258" Column="43" TopLine="247"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="cargar_arbol.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="act_colavorativa"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="24"/>
+        <CursorPos X="67" Y="33"/>
+        <FoldState Value=" T3i40P43"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="1">
+      <Position>
+        <Filename Value="cargar_arbol.pas"/>
+        <Caret Line="132" Column="23" TopLine="121"/>
+      </Position>
+      <Position>
+        <Filename Value="cargar_arbol.pas"/>
+        <Caret Line="68" Column="48" TopLine="47"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

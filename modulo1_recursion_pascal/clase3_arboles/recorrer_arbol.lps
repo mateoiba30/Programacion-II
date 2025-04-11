@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="recorrer_arbol.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="lista_ordenada_a_arbol"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="189"/>
+        <CursorPos Y="192"/>
+        <FoldState Value=" T3iF08024B"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\..\Downloads\ProgramaEncomiendas_2021.pas"/>
+        <UnitName Value="encomiendas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="46"/>
+        <CursorPos X="23" Y="70"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="-1"/>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="arbol_ABO_funcionbooleana_yprocedurecontador.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="arbol_ABO"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="61"/>
+        <CursorPos X="47" Y="69"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="2">
+      <Position>
+        <Filename Value="arbol_ABO_funcionbooleana_yprocedurecontador.lpr"/>
+        <Caret Line="166" Column="87" TopLine="151"/>
+      </Position>
+      <Position>
+        <Filename Value="arbol_ABO_funcionbooleana_yprocedurecontador.lpr"/>
+        <Caret Line="117" Column="44" TopLine="104"/>
+      </Position>
+      <Position>
+        <Filename Value="arbol_ABO_funcionbooleana_yprocedurecontador.lpr"/>
+        <Caret Line="120" Column="19" TopLine="108"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

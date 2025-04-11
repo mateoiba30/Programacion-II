@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="258"/>
+        <CursorPos X="5" Y="281"/>
+        <FoldState Value=" T3iE08024C"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="10">
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="275" Column="7" TopLine="257"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="243" Column="3" TopLine="224"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="244" Column="7" TopLine="227"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="275" Column="17" TopLine="256"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="274" Column="5" TopLine="256"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="275" Column="28" TopLine="256"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="228" Column="7" TopLine="217"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="275" Column="16"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="228" Column="12" TopLine="216"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="272" Column="39" TopLine="254"/>
+      </Position>
+      <Position>
+        <Filename Value="buscar_ordenado.lpr"/>
+        <Caret Line="272" Column="16" TopLine="253"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

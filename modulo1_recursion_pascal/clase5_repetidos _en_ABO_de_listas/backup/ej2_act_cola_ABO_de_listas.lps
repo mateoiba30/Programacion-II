@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ej2_act_cola_ABO_de_listas.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="95"/>
+        <CursorPos X="14" Y="107"/>
+        <FoldState Value=" T3T083l"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\clase2_recursion\busqueda_dicotomica(vector_ordenado).pas"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="99" Y="4"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\clase3_arboles\act_colaborativa_cargar_arbol_y_buscar.pas"/>
+        <UnitName Value="act_colavorativa"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="87"/>
+        <CursorPos X="61" Y="42"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="4">
+      <Position>
+        <Filename Value="ej2_act_cola_ABO_de_listas.lpr"/>
+        <Caret Line="115" Column="21" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_act_cola_ABO_de_listas.lpr"/>
+        <Caret Line="24" Column="8" TopLine="13"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_act_cola_ABO_de_listas.lpr"/>
+        <Caret Line="54" Column="32" TopLine="39"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_act_cola_ABO_de_listas.lpr"/>
+        <Caret Line="105" Column="29" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="ej2_act_cola_ABO_de_listas.lpr"/>
+        <Caret Line="114" Column="25" TopLine="100"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

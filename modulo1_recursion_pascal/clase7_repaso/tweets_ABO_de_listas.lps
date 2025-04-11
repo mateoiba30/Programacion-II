@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="tweets_ABO_de_listas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="156"/>
+        <CursorPos X="37" Y="149"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\..\Downloads\tpfinal.pas"/>
+        <UnitName Value="TPGrupoX"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="216"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="5">
+      <Position>
+        <Filename Value="tweets_ABO_de_listas.pas"/>
+        <Caret Line="135" Column="6" TopLine="114"/>
+      </Position>
+      <Position>
+        <Filename Value="tweets_ABO_de_listas.pas"/>
+        <Caret Line="158" Column="26" TopLine="135"/>
+      </Position>
+      <Position>
+        <Filename Value="tweets_ABO_de_listas.pas"/>
+        <Caret Line="182" Column="21" TopLine="161"/>
+      </Position>
+      <Position>
+        <Filename Value="tweets_ABO_de_listas.pas"/>
+        <Caret Line="147" Column="19" TopLine="135"/>
+      </Position>
+      <Position>
+        <Filename Value="tweets_ABO_de_listas.pas"/>
+        <Caret Line="148" Column="22" TopLine="136"/>
+      </Position>
+      <Position>
+        <Filename Value="tweets_ABO_de_listas.pas"/>
+        <Caret Line="143" Column="49" TopLine="137"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

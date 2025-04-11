@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="encomiendas.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="113"/>
+        <CursorPos X="15" Y="135"/>
+        <FoldState Value=" T3jX065"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="4">
+      <Position>
+        <Filename Value="encomiendas.lpr"/>
+        <Caret Line="152" Column="30" TopLine="110"/>
+      </Position>
+      <Position>
+        <Filename Value="encomiendas.lpr"/>
+        <Caret Line="17" Column="23" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="encomiendas.lpr"/>
+        <Caret Line="75" Column="17" TopLine="63"/>
+      </Position>
+      <Position>
+        <Filename Value="encomiendas.lpr"/>
+        <Caret Line="30" Column="9" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="encomiendas.lpr"/>
+        <Caret Line="136" Column="5" TopLine="119"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

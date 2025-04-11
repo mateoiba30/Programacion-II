@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="154"/>
+        <CursorPos X="25" Y="164"/>
+        <FoldState Value=" T3U096 picjI03011M"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\AppData\Local\Temp\Rar$DIa11652.26829\twitter.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="120"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\AppData\Local\Temp\Rar$DIa11652.27244\twitter.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="14">
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="110" Column="30" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="130" Column="33" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="34" Column="20" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="107" Column="21" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="144" Column="13" TopLine="125"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="120" Column="53" TopLine="105"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="4" Column="10"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="129" Column="6" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="133" Column="40" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="159" Column="31" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="135" Column="64" TopLine="116"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="140" Column="31" TopLine="115"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="148" Column="54" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="89" Column="126" TopLine="28"/>
+      </Position>
+      <Position>
+        <Filename Value="ejrepaso_lista_de_listas.lpr"/>
+        <Caret Line="195" Column="6" TopLine="150"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

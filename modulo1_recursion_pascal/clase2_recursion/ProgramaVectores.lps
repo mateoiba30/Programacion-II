@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="ProgramaVectores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Arreglos"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="71"/>
+        <CursorPos X="71" Y="93"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory>
+      <Position>
+        <Filename Value="ProgramaVectores.pas"/>
+        <Caret Line="92" Column="16" TopLine="71"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

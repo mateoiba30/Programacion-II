@@ -1,12 +1,4 @@
-*.png
+*.pptx
+*.ppt
+*.csharp
 *.zip
-*.rar
-*.lps
-*.lpr
-*.lpi
-*.exe
-*.doc
-*.compiled
-*.o
-*.docx
-*.class
