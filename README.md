@@ -1,17 +1,13 @@
 # Programación 2
 
-Este repositorio contiene las prácticas realizadas en la materia **Programación 2**.
+This repository contains the practices carried out in the subject **Programming 2**.
 
-## Prácticas
+## Practices
 
-- [modulo1_recursion_pascal](modulo1_recursion_pascal/)
+- [Module 1: recursion](modulo1_recursion_pascal/)
 
-- [modulo2_objetos_java](modulo2_objetos_java/)
+- [Module 2: objects](modulo2_objetos_java/)
 
-- [modulo3_bajo_nivlel_assembler](modulo3_bajo_nivlel_assembler/)
+- [Module 3: assembler](modulo3_bajo_nivlel_assembler/)
 
-- [modulo4_concurrencia](modulo4_concurrencia/)
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+- [Module 4: concurrency](modulo4_concurrencia/)
