@@ -4,10 +4,10 @@ This repository contains the practices carried out in the subject **Programming 
 
 ## Practices
 
-- [modulo1_recursion_pascal](modulo1_recursion_pascal/)
+- [Module 1: recursion](modulo1_recursion_pascal/)
 
-- [modulo2_java_objects](modulo2_objetos_java/)
+- [Module 2: objects](modulo2_objetos_java/)
 
-- [modulo3_low_level_assembler](modulo3_bajo_nivlel_assembler/)
+- [Module 3: assembler](modulo3_bajo_nivlel_assembler/)
 
-- [modulo4_concurrencia](modulo4_concurrencia/)
+- [Module 4: concurrency](modulo4_concurrencia/)
